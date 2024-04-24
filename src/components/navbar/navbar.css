@@ -1,0 +1,30 @@
+.containerNav {
+    width: 1403px;
+    height: 278px;
+    top: -147px;
+    gap: 0px;
+    opacity: 0px;
+   padding: 50px;
+}
+:where(.css-dev-only-do-not-override-mzwlov) a {
+    color: #000000;
+    font-family: Inter;
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 21.19px;
+    letter-spacing: 0.06em;
+    text-align: left;
+    
+
+}
+.logo {
+    width: 350px;
+height: 278px;
+margin-top: -170px;
+left: 161px;
+gap: 0px;
+opacity: 0px;
+
+
+}
