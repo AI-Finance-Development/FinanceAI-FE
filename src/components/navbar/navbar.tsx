@@ -1,11 +1,21 @@
-import React from 'react'
-
-const navbar = () => {
+import React from 'react';
+import { Row, Col, Space } from 'antd';
+import navbarLogo from '../../assets/navbar-logo.png';
+import './navbar.css';
+const Navbar = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <Row justify="space-around" className="containerNav">
+      <Col><img className='logo' src={navbarLogo} alt="Logo" /></Col>
+      <Col>
+        <Space size={'large'}>
+          <span >Ana Sayfa</span>
+          <span >Nasıl Kullanılır ?</span>
+          <span >Merak ettikleriniz</span>
+          <span >Neden biz ?</span>
+        </Space>
+      </Col>
+    </Row>
+  );
+};
 
-export default navbar
+export default Navbar;
