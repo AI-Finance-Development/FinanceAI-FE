@@ -1,0 +1,22 @@
+.containerNav {
+    top: -147px;
+    opacity: 0px;
+    padding: 50px;
+}
+
+.containerNav span {
+    font-size: 1.025rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+}
+
+.logo {
+    width: 350px;
+    height: 278px;
+    margin-top: -170px;
+    left: 161px;
+    cursor: pointer;
+}
