@@ -1,0 +1,40 @@
+
+.right-container{
+    height: 100vh;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7rem;
+    padding: 0 5rem;
+}
+
+.header-title span{
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 52px;
+}
+
+.header-body{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.header-body button{
+    width: 100%;
+}
+
+.right-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.right-footer span{
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 22px;
+    font-style: italic;
+}

@@ -1,39 +1,5 @@
-
-.header-title span{
-    font-size: 2.5rem;
-    font-weight: 900;
-    font-style: italic;
-    line-height: 52px;
-}
-
-.right-container{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
 .left-container{
-    display: "flex"; 
-    justify-content: end;
-    @media (max-width:991px) {
-        display: flex;
-        justify-content: center;
-    }
-}
-
-.header-body{
     display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.header-body button{
-    width: 100%;
-}
-
-.right-footer{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    justify-content: center;
+    align-items: center;
 }
