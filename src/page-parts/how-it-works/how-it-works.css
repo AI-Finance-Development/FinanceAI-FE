@@ -1,0 +1,27 @@
+.container{
+    height: calc(100vh - 212px); /* Ekran yüksekliğinin tamamını kaplar, ancak navbar yüksekliği çıkarılır */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    background: linear-gradient(180deg, #536EAF 9%, #232E49 77.5%, #2B395A 100%),
+    linear-gradient(180deg, #536EAF 79%, #232E49 99.98%, #2B395A 99.99%);
+}
+
+.how-it-work-card{
+    width: 100%;
+}
+
+.header span{
+    font-size: 42px;
+    line-height: 52px;
+    font-weight: 900;
+}
+
+.how-it-works-how{
+    font-size: 42px;
+    line-height: 52px;
+    font-weight: 900;
+    color:#48C9C1;
+}
