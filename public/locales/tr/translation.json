@@ -1,4 +1,7 @@
 {
-    "welcome": "Hoşgeldin JSON!",
-    "HomePage": "Ana Sayfa"
+    "welcome": "Welcome JSON!",
+    "components.navbar.homepage": "Ana Sayfa",
+    "components.navbar.howToUse": "Nasıl Kullanılır ?",
+    "components.navbar.thingsYouWonder": "Merak Ettikleriniz",
+    "components.navbar.WhyUs": "Neden Biz ?"
 }

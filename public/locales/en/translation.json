@@ -1,4 +1,7 @@
 {
     "welcome": "Welcome JSON!",
-    "HomePage": "Home Page"
+    "HomePagecomponents.navbar.homepage": "Home Page",
+    "components.navbar.howToUse": "How To Use ?",
+    "components.navbar.thingsYouWonder": "Things You Wonder",
+    "components.navbar.WhyUs": "Why Us ?"
 }
