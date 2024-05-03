@@ -1,8 +1,7 @@
 import React from "react";
 import "./secondary-button.css";
 import { Button, ButtonProps, ConfigProvider } from "antd";
-import { ReactComponent as GoogleSVG } from "../../assets/google.svg";
-import { GoogleOutlined } from "@ant-design/icons";
+
 interface SecondaryButtonProps extends ButtonProps {
     buttonText: string;
 }
@@ -23,12 +22,11 @@ const SecondaryButton = (props: SecondaryButtonProps) => {
                         defaultHoverBg: "rgb(85, 98, 131)",
                         defaultHoverBorderColor: "rgb(76, 91, 126)",
                         defaultHoverColor: "rgb(255, 255, 255)",
-
                     },
                 },
             }}
         >
-            <Button {...props} className="button">
+            <Button {...props} className="button" size="large">
                 {props.buttonText}
             </Button>
         </ConfigProvider>
