@@ -1,6 +1,7 @@
 import React from 'react'
 import './primary-button.css';
 import { Button, ButtonProps, ConfigProvider } from 'antd'
+import {ReactComponent as GoogleSVG} from '../../assets/google.svg'
 
 interface PrimaryButtonProps extends ButtonProps {
     buttonText: string;
@@ -12,15 +13,17 @@ const PrimaryButton = (props: PrimaryButtonProps) => {
             theme={{
                 components: {
                     Button: {
+
                         controlHeight: 40,
                         controlHeightLG: 44,
                         controlHeightSM: 36,
-                        // colorPrimary: 'rgb(12, 63, 111)',
-                        // colorPrimaryBorder: 'rgb(12, 63, 111)',
-                        // colorPrimaryActive: 'rgb(12, 63, 111)',
-                        // colorPrimaryHover: 'rgb(255, 255, 255)',
-                        defaultBg: "rgb(19, 194, 194)",
-                        defaultColor: "rgb(255, 255, 255)"
+                        borderRadius: 15,
+                        "defaultBg": "rgb(40, 52, 82)",
+                        "defaultColor": "rgba(255, 255, 255, 0.88)",
+                        "defaultBorderColor": "rgb(40, 52, 82)",
+                        "defaultHoverBg": "rgb(85, 98, 131)",
+                        "defaultHoverBorderColor": "rgb(76, 91, 126)",
+                        "defaultHoverColor": "rgb(255, 255, 255)"
 
                     },
                 },
@@ -28,6 +31,7 @@ const PrimaryButton = (props: PrimaryButtonProps) => {
         >
             <Button {...props} className='button'>
                 {props.buttonText}
+                
             </Button>
         </ConfigProvider>
 

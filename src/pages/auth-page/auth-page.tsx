@@ -6,7 +6,7 @@ import AuthPart from '../../page-parts/auth-part/auth-part';
 
 const AuthPage = () => {
     return (
-        <Row>
+        <Row className='background'>
             <Col sm={24} md={24} lg={12} className='left-container'>
                 <Image src={logo} alt='logo' />
             </Col>
