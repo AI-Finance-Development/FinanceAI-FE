@@ -10,11 +10,14 @@ interface LogInModalProps extends ModalProps { }
 
 const LogInModal = (props: LogInModalProps) => {
 
-    const {AuthApi} = useAxiosServiceClient();
+    const { AuthApi } = useAxiosServiceClient();
 
     const onFinish = async (values: any) => {
-        await AuthApi.LogIn(values).then((resp)=>console.log("resp: ",resp)).catch((err)=>console.log("err: ",err))
-    }
+        await AuthApi.LogIn(values)
+            .then((resp) => console.log("resp: ", resp))
+            .catch((err) => console.log("err: ", err))
+        console.log("asassd")
+        }
 
     return (
         <Modal {...props} footer={null} >
