@@ -3,14 +3,17 @@ import './log-in-modal.css'
 import { Form, Modal, ModalProps, Space } from 'antd'
 import FaiInput from '../../atomics/fai-input/fai-input'
 import PrimaryButton from '../../atomics/primary-button/primary-button'
+import { useAxiosServiceClient } from '../../../services/axios'
 
 
 interface LogInModalProps extends ModalProps { }
 
 const LogInModal = (props: LogInModalProps) => {
 
-    const onFinish = (values: any) => {
-        console.log("values: ", values)
+    const {AuthApi} = useAxiosServiceClient();
+
+    const onFinish = async (values: any) => {
+        await AuthApi.LogIn(values).then((resp)=>console.log("resp: ",resp)).catch((err)=>console.log("err: ",err))
     }
 
     return (
