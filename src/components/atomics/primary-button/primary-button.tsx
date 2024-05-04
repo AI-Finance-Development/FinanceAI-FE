@@ -15,19 +15,20 @@ const PrimaryButton = (props: PrimaryButtonProps) => {
                         controlHeight: 40,
                         controlHeightLG: 44,
                         controlHeightSM: 36,
-                        // colorPrimary: 'rgb(12, 63, 111)',
-                        // colorPrimaryBorder: 'rgb(12, 63, 111)',
-                        // colorPrimaryActive: 'rgb(12, 63, 111)',
-                        // colorPrimaryHover: 'rgb(255, 255, 255)',
-                        defaultBg: "rgb(19, 194, 194)",
-                        defaultColor: "rgb(255, 255, 255)"
-
+                        borderRadius: 15,
+                        defaultBg: "rgb(40, 52, 82)",
+                        defaultColor: "rgba(255, 255, 255, 0.88)",
+                        defaultBorderColor: "rgb(40, 52, 82)",
+                        defaultHoverBg: "rgb(85, 98, 131)",
+                        defaultHoverBorderColor: "rgb(76, 91, 126)",
+                        defaultHoverColor: "rgb(255, 255, 255)"
                     },
                 },
             }}
         >
-            <Button {...props} className='button'>
+            <Button {...props} className='button' size='large'>
                 {props.buttonText}
+                
             </Button>
         </ConfigProvider>
 
