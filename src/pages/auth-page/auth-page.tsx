@@ -1,18 +1,20 @@
 import React from 'react'
 import './auth-page.css'
-import { Col, Image, Row} from 'antd'
+import { Col, Image, Row } from 'antd'
 import logo from '../../assets/logo.png';
 import AuthPart from '../../page-parts/auth-part/auth-part';
 
 const AuthPage = () => {
     return (
         <Row className='background'>
-            <Col sm={24} md={24} lg={12} className='left-container'>
-                <Image src={logo} alt='logo' />
+            <Col lg={3}></Col>
+            <Col sm={24} md={24} lg={9} className='left-container'>
+                <Image preview={false} src={logo} alt='logo' />
             </Col>
-            <Col sm={24} md={24} lg={12}>
-                <AuthPart/>
+            <Col sm={24} md={24} lg={9} className='auth-container'>
+                <AuthPart />
             </Col>
+            <Col lg={3}></Col>
         </Row>
     )
 }

@@ -8,3 +8,8 @@
     background: linear-gradient(180deg, #839FE2 0%, #4D6398 86%, #324267 100%),
     linear-gradient(180deg, #536EAF 9%, #232E49 43%, #2B395A 99.99%);
 }
+
+.auth-container{
+    display: flex;
+    justify-content: center;
+}
