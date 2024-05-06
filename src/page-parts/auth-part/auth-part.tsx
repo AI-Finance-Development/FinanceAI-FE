@@ -20,13 +20,13 @@ const AuthPart = () => {
             </div>
             <div className="header-body">
                     <Space direction="vertical" size={"small"}>
-                        <SecondaryButton className="buttons" icon={<GoogleOutlined />} buttonText="Google ile giriş yap"></SecondaryButton>
+                        <SecondaryButton className="buttons" icon={<GoogleOutlined />} buttontext="Google ile giriş yap"></SecondaryButton>
                         <Divider />
-                        <SecondaryButton className="buttons" buttonText="Hesap Oluştur"></SecondaryButton>
+                        <SecondaryButton className="buttons" buttontext="Hesap Oluştur"></SecondaryButton>
                     </Space>
                 <div className="right-footer">
                     <span>Zaten hesabın var mı?</span>
-                    <PrimaryButton buttonText="Giriş yap" onClick={()=>{setOpenLogInModal(true)}}></PrimaryButton>
+                    <PrimaryButton buttontext="Giriş yap" onClick={()=>{setOpenLogInModal(true)}}></PrimaryButton>
                 </div>
             </div>
             <LogInModal open={isOpenLoginModal} />
