@@ -3,18 +3,21 @@ import './log-in-modal.css'
 import { Form, Modal, ModalProps, Space } from 'antd'
 import FaiInput from '../../atomics/fai-input/fai-input'
 import PrimaryButton from '../../atomics/primary-button/primary-button'
+import { useTranslation } from 'react-i18next'
 
 
 interface LogInModalProps extends ModalProps { }
 
 const LogInModal = (props: LogInModalProps) => {
 
+    const {t} = useTranslation();
+
     const onFinish = (values: any) => {
         console.log("values: ", values)
     }
 
     return (
-        <Modal {...props} footer={null} >
+        <Modal {...props} footer={null}>
             <div className='sign-up-container'>
                 <Space direction='vertical'>
                     <span className='title'>Sign Up</span>
@@ -28,7 +31,7 @@ const LogInModal = (props: LogInModalProps) => {
                         <FaiInput size='large' />
                     </Form.Item>
                     <Form.Item>
-                        <PrimaryButton htmlType='submit' buttontext='Giriş Yap'></PrimaryButton>
+                        <PrimaryButton htmlType='submit' buttontext={t('page-parts.auth-part.logIn')}></PrimaryButton>
                     </Form.Item>
                 </Form>
             </div>

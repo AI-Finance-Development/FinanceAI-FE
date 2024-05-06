@@ -3,5 +3,11 @@
     "HomePagecomponents.navbar.homepage": "Home Page",
     "components.navbar.howToUse": "How To Use ?",
     "components.navbar.thingsYouWonder": "Things You Wonder",
-    "components.navbar.WhyUs": "Why Us ?"
+    "components.navbar.WhyUs": "Why Us ?",
+
+    "page-parts.auth-part.haveYouAccount":"Already do you have an account?",
+    "page-parts.auth-part.signUp":"Create Account",
+    "page-parts.auth-part.title.word1":"START",
+    "page-parts.auth-part.title.word2":"YOUR GOALS",
+    "page-parts.auth-part.title.word3":"NOW"
 }
