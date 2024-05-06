@@ -3,7 +3,7 @@ import './primary-button.css';
 import { Button, ButtonProps, ConfigProvider } from 'antd'
 
 interface PrimaryButtonProps extends ButtonProps {
-    buttonText: string;
+    buttontext: string;
 }
 
 const PrimaryButton = (props: PrimaryButtonProps) => {
@@ -27,7 +27,7 @@ const PrimaryButton = (props: PrimaryButtonProps) => {
             }}
         >
             <Button {...props} className='button' size='large'>
-                {props.buttonText}
+                {props.buttontext}
                 
             </Button>
         </ConfigProvider>

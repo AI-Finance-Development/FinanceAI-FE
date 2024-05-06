@@ -28,7 +28,7 @@ const LogInModal = (props: LogInModalProps) => {
                         <FaiInput size='large' />
                     </Form.Item>
                     <Form.Item>
-                        <PrimaryButton htmlType='submit' buttonText='Giriş Yap'></PrimaryButton>
+                        <PrimaryButton htmlType='submit' buttontext='Giriş Yap'></PrimaryButton>
                     </Form.Item>
                 </Form>
             </div>
