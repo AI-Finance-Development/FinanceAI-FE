@@ -25,7 +25,7 @@ const HowItWorks = () => {
               <Card
                 className='how-it-work-card'
                 hoverable={false}
-                cover={<img alt="example" src={step1} />}
+                cover={<img className='ikon' alt="example" src={step1} />}
               >
                 <Meta title="Giriş yapın ya da 
 kayıt olun"  />
@@ -39,7 +39,7 @@ kayıt olun"  />
               <Card
                 className='how-it-work-card'
                 hoverable={false}
-                cover={<img alt="example" src={step3} />}
+                cover={<img className='ikon' alt="example" src={step3} />}
               >
                 <Meta title="Hesap özetinizi
 inceleyin"  />
@@ -52,7 +52,7 @@ inceleyin"  />
               <Card
                 className='how-it-work-card'
                 hoverable={false}
-                cover={<img alt="example" src={step4} />}
+                cover={<img className='ikon' alt="example" src={step4} />}
               >
                 <Meta title="AI ile hedef 
 oluşturun"  />
@@ -65,7 +65,7 @@ oluşturun"  />
               <Card
                 className='how-it-work-card'
                 hoverable={false}
-                cover={<img alt="example" src={step2} />}
+                cover={<img className='ikon' alt="example" src={step2} />}
               >
                 <Meta title="Hedefinize ulaşın
 kârınızı arttırın" />
