@@ -38,7 +38,7 @@ const AuthPart = () => {
                     <PrimaryButton buttontext={t('page-parts.auth-part.logIn')} onClick={() => { setOpenLogInModal(true) }} />
                 </div>
             </div>
-            <LogInModal open={isOpenLoginModal} onCancel={() => { setOpenLogInModal(false)}} setOpenLogInModal={setOpenLogInModal}/>
+            <LogInModal open={isOpenLoginModal} onCancel={() => { setOpenLogInModal(false)}} />
             <SignUpModal open={isOpenSignUpModal} onCancel={() => { setOpenSignUpModal(false)}} />
         </div>
     );
