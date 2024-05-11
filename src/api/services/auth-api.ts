@@ -6,5 +6,5 @@ export class AuthApi extends BaseApi {
   public async LogIn(loginModel: LogInModel) {
     return await this.axios.post(this.basePath + "/auth/login", loginModel);
   }
-
+  
 }

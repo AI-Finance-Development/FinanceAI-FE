@@ -6,17 +6,29 @@ import PrimaryButton from '../../atomics/primary-button/primary-button'
 import { useAxiosServiceClient } from '../../../services/axios'
 import { useTranslation } from 'react-i18next'
 import FormLabel from '../../atomics/form-label/form-label'
+import { useAtom } from 'jotai'
+import { userInfoAtom } from '../../../store/global-atoms'
 
 
-interface LogInModalProps extends ModalProps { }
+interface LogInModalProps extends ModalProps { 
+    setOpenLogInModal:(isOpen:boolean)=>void;
+}
 
 const LogInModal = (props: LogInModalProps) => {
 
     const { AuthApi } = useAxiosServiceClient();
+    const [,setUserInfo] = useAtom(userInfoAtom);
 
     const onFinish = async (values: any) => {
         await AuthApi.LogIn(values)
-            .then((resp) => console.log("resp: ", resp))
+            .then((resp) => {
+                if(resp.data.data.username){
+                    setUserInfo(resp.data.data.username)
+                    props.setOpenLogInModal(false);
+                }else{
+
+                }
+            })
             .catch((err) => console.log("err: ", err))
         console.log("asassd")
         }
