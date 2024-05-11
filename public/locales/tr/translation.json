@@ -3,5 +3,13 @@
     "components.navbar.homepage": "Ana Sayfa",
     "components.navbar.howToUse": "Nasıl Kullanılır ?",
     "components.navbar.thingsYouWonder": "Merak Ettikleriniz",
-    "components.navbar.WhyUs": "Neden Biz ?"
+    "components.navbar.WhyUs": "Neden Biz ?",
+
+    "page-parts.auth-part.haveYouAccount":"Zaten hesabın var mı?",
+    "page-parts.auth-part.logIn":"Giriş Yap",
+    "page-parts.auth-part.signUp":"Hesap Oluştur",
+    "page-parts.auth-part.logInWithGoogle":"Google İle Giriş Yap",
+    "page-parts.auth-part.title.word1":"HEMEN",
+    "page-parts.auth-part.title.word2":"HEDEFLERİNE",
+    "page-parts.auth-part.title.word3":"BAŞLA"
 }

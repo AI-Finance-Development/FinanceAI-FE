@@ -3,7 +3,7 @@ import "./secondary-button.css";
 import { Button, ButtonProps, ConfigProvider } from "antd";
 
 interface SecondaryButtonProps extends ButtonProps {
-    buttonText: string;
+    buttontext: string;
 }
 
 const SecondaryButton = (props: SecondaryButtonProps) => {
@@ -27,7 +27,7 @@ const SecondaryButton = (props: SecondaryButtonProps) => {
             }}
         >
             <Button {...props} className="button" size="large">
-                {props.buttonText}
+                {props.buttontext}
             </Button>
         </ConfigProvider>
     );
