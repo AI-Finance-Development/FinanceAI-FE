@@ -7,12 +7,13 @@ import SecondaryButton from "../../components/atomics/secondary-button/secondary
 import { GoogleOutlined } from '@ant-design/icons';
 import LogInModal from "../../components/modals/log-in-modal/log-in-modal";
 import { useTranslation } from "react-i18next";
+import SignUpModal from "../../components/modals/sign-up-modal/sign-up-modal";
 
 const AuthPart = () => {
 
     const { t } = useTranslation();
     const [isOpenLoginModal, setOpenLogInModal] = useState(false);
-
+    const [isOpenSignUpModal, setOpenSignUpModal] = useState(false);
     return (
         <div className="right-container">
             <div className="header-title">
@@ -30,14 +31,15 @@ const AuthPart = () => {
                         buttontext={t('page-parts.auth-part.logInWithGoogle')} 
                         />
                     <Divider />
-                    <SecondaryButton className="buttons" buttontext={t('page-parts.auth-part.signUp')}/>
+                    <SecondaryButton className="buttons" buttontext={t('page-parts.auth-part.signUp')} onClick={() => { setOpenSignUpModal(true) }}></SecondaryButton>
                 </Space>
                 <div className="right-footer">
                     <span>{t('page-parts.auth-part.haveYouAccount')}</span>
                     <PrimaryButton buttontext={t('page-parts.auth-part.logIn')} onClick={() => { setOpenLogInModal(true) }} />
                 </div>
             </div>
-            <LogInModal open={isOpenLoginModal} onCancel={() => { setOpenLogInModal(false) }} setOpenLogInModal={setOpenLogInModal} />
+            <LogInModal open={isOpenLoginModal} onCancel={() => { setOpenLogInModal(false)}} setOpenLogInModal={setOpenLogInModal}/>
+            <SignUpModal open={isOpenSignUpModal} onCancel={() => { setOpenSignUpModal(false)}} />
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './log-in-modal.css'
 import { Form, Modal, ModalProps, Space } from 'antd'
 import FaiInput from '../../atomics/fai-input/fai-input'
@@ -38,7 +38,7 @@ const LogInModal = (props: LogInModalProps) => {
         <Modal {...props} footer={null}>
             <div className='sign-up-container'>
                 <Space direction='vertical'>
-                    <span className='title'>Sign Up</span>
+                    <span className='title'>Sign In</span>
                     <span className='subTitle'>Please enter your info</span>
                 </Space>
                 <Form layout='vertical' style={{ marginTop: "1.5rem" }} onFinish={onFinish}>
