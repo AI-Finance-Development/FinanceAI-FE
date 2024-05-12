@@ -4,12 +4,17 @@
     "components.navbar.howToUse": "Nasıl Kullanılır ?",
     "components.navbar.thingsYouWonder": "Merak Ettikleriniz",
     "components.navbar.WhyUs": "Neden Biz ?",
-
+    "components.sign-up-modal.signup":"Kayıt Ol",
     "page-parts.auth-part.haveYouAccount":"Zaten hesabın var mı?",
     "page-parts.auth-part.logIn":"Giriş Yap",
     "page-parts.auth-part.signUp":"Hesap Oluştur",
     "page-parts.auth-part.logInWithGoogle":"Google İle Giriş Yap",
     "page-parts.auth-part.title.word1":"HEMEN",
     "page-parts.auth-part.title.word2":"HEDEFLERİNE",
-    "page-parts.auth-part.title.word3":"BAŞLA"
+    "page-parts.auth-part.title.word3":"BAŞLA",
+    "components.sign-up-modal.username":"Kullanıcı Adı",
+     "components.sign-up-modal.email":"Email",
+     "components.sign-up-modal.password": "Şifre",
+     "components.sign-up-modal.privacy":"Şartlar ve Gizlilik'i kabul ediyorum",
+     "components.sign-up-modal.details":"Lütfen bilgilerinizi girin"
 }
