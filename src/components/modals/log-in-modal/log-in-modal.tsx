@@ -11,6 +11,7 @@ import { userInfoAtom } from '../../../store/global-atoms'
 
 
 interface LogInModalProps extends ModalProps { 
+    onSuccessAction?: ()=>void;
 }
 
 const LogInModal = (props: LogInModalProps) => {
@@ -23,12 +24,10 @@ const LogInModal = (props: LogInModalProps) => {
             .then((resp) => {
                 if(resp.data.data.username){
                     setUserInfo(resp.data.data.username)
-                }else{
-
+                    props.onSuccessAction && props.onSuccessAction();
                 }
             })
             .catch((err) => console.log("err: ", err))
-        console.log("asassd")
         }
     const { t } = useTranslation();
 

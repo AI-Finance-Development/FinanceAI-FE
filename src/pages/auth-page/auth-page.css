@@ -1,7 +1,10 @@
 .left-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @media (min-width: 576px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 }
 
 .background{
