@@ -8,7 +8,7 @@ const AuthPage = () => {
     return (
         <Row className='background'>
             <Col lg={3}></Col>
-            <Col sm={24} md={24} lg={9} className='left-container'>
+            <Col xs={0} sm={0} md={0} lg={9} className='left-container'>
                 <Image preview={false} src={logo} alt='logo' />
             </Col>
             <Col sm={24} md={24} lg={9} className='auth-container'>

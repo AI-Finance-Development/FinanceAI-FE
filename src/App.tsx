@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import AuthPage from './pages/auth-page/auth-page';
 import BaseLayout from './layouts/base-layout/base-layout';
 import Index from './pages/index';
+import SecureLayout from './layouts/secure-layout/secure-layout';
+import HomePage from './pages/home-page/home-page';
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
       } />
       <Route path='/auth' element={
         <AuthPage />
+      } />
+      <Route path='/home' element={
+       <SecureLayout><HomePage/></SecureLayout>
       } />
     </Routes>
   );
