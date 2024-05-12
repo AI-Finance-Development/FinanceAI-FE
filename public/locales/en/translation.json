@@ -4,10 +4,16 @@
     "components.navbar.howToUse": "How To Use ?",
     "components.navbar.thingsYouWonder": "Things You Wonder",
     "components.navbar.WhyUs": "Why Us ?",
-
+    "components.sign-up-modal.signup":"Sign Up",
     "page-parts.auth-part.haveYouAccount":"Already do you have an account?",
     "page-parts.auth-part.signUp":"Create Account",
     "page-parts.auth-part.title.word1":"START",
     "page-parts.auth-part.title.word2":"YOUR GOALS",
-    "page-parts.auth-part.title.word3":"NOW"
+    "page-parts.auth-part.title.word3":"NOW",
+     "components.sign-up-modal.username":"User Name",
+     "components.sign-up-modal.email":"Email",
+     "components.sign-up-modal.password": "Password",
+     "page-parts.auth-part.logIn":"Log In",
+     "components.sign-up-modal.privacy": "I agree with Terms and Privacy",
+    " components.sign-up-modal.details":"Please enter your details "
 }
