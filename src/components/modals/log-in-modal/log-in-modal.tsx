@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next'
 import FormLabel from '../../atomics/form-label/form-label'
 import { useAtom } from 'jotai'
 import { userInfoAtom } from '../../../store/global-atoms'
+import { useNavigate } from 'react-router-dom'
 
 
 interface LogInModalProps extends ModalProps { 
@@ -16,6 +17,7 @@ interface LogInModalProps extends ModalProps {
 
 const LogInModal = (props: LogInModalProps) => {
 
+    const navigate = useNavigate();
     const { AuthApi } = useAxiosServiceClient();
     const [,setUserInfo] = useAtom(userInfoAtom);
 
@@ -25,6 +27,7 @@ const LogInModal = (props: LogInModalProps) => {
                 if(resp.data.data.username){
                     setUserInfo(resp.data.data.username)
                     props.onSuccessAction && props.onSuccessAction();
+                    navigate('/home')
                 }
             })
             .catch((err) => console.log("err: ", err))
