@@ -5,8 +5,8 @@
     align-items: center;
     justify-content: center;
     gap: 5rem;
-    background: linear-gradient(180deg, #536EAF 9%, #232E49 77.5%, #2B395A 100%),
-    linear-gradient(180deg, #536EAF 79%, #232E49 99.98%, #2B395A 99.99%);
+ background: linear-gradient(180deg, #536EAF 9%, #232E49 43%, #2B395A 100%),
+        linear-gradient(180deg, #839FE2 0%, #4D6398 86%, #324267 100%);
 }
 
 .how-it-work-card{
