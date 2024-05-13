@@ -12,11 +12,12 @@ const PrimaryButton = (props: PrimaryButtonProps) => {
             theme={{
                 components: {
                     Button: {
+                    
                         controlHeight: 40,
                         controlHeightLG: 44,
                         controlHeightSM: 36,
                         borderRadius: 15,
-                        defaultBg: "rgb(40, 52, 82)",
+                        defaultBg: "rgb(45, 72, 92)",
                         defaultColor: "rgba(255, 255, 255, 0.88)",
                         defaultBorderColor: "rgb(40, 52, 82)",
                         defaultHoverBg: "rgb(85, 98, 131)",
