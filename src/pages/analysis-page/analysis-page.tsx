@@ -4,9 +4,11 @@ import grafik from "../../assets/grafik.png";
 import "./analysis-page.css";
 import PrimaryButton from "../../components/atomics/primary-button/primary-button";
 import SecondaryButton from "../../components/atomics/secondary-button/secondary-button";
+import Navbar from "../../layouts/navbar/navbar";
 const Analysis = () => {
   return (
     <div>
+      <Navbar/>
       <Row className="Analiz">
         <Col lg={3}></Col>
         <Col xs={0} sm={0} md={0} lg={9} className="left-c">

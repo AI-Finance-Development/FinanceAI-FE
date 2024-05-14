@@ -31,9 +31,9 @@ function App() {
       <Route
         path="/analysis"
         element={
-          <BaseLayout>
+          <SecureLayout>
             <Analysis />
-          </BaseLayout>
+          </SecureLayout>
         }
       />
     </Routes>
