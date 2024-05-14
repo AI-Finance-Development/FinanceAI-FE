@@ -7,8 +7,8 @@ import SecondaryButton from "../../components/atomics/secondary-button/secondary
 import Navbar from "../../layouts/navbar/navbar";
 const Analysis = () => {
   return (
-    <div>
-      <Navbar/>
+    
+     
       <Row className="Analiz">
         <Col lg={3}></Col>
         <Col xs={0} sm={0} md={0} lg={9} className="left-c">
@@ -27,7 +27,7 @@ const Analysis = () => {
         </Col>
         <Col lg={3}></Col>
       </Row>
-    </div>
+    
   );
 };
 
