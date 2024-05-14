@@ -1,6 +1,5 @@
-.backg{
-    background: linear-gradient(180deg, #536EAF 9%, #232E49 43%, #2B395A 100%),
-    linear-gradient(180deg, #839FE2 0%, #4D6398 86%, #324267 100%);
+.backg {
+  background-color: aliceblue;
 }
 
 .listyazısı {
@@ -13,7 +12,7 @@
     font-weight: 540;
     line-height: 55px;
     text-align: left;
-    color: white;
+    color: black;
     pointer-events: none;
    
   }
@@ -40,6 +39,3 @@ opacity: 0px;
 box-shadow: 3px 11px 8.3px 0px #00000040;
 
   }
-  .left-containerr{
-  background: linear-gradient(180deg, #536EAF 9%, #232E49 43%, #2B395A 100%),
-  linear-gradient(180deg, #839FE2 0%, #4D6398 86%, #324267 100%); }
