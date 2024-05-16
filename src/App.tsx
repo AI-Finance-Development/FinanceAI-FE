@@ -31,9 +31,9 @@ function App() {
       <Route
         path="/analysis"
         element={
-          <SecureLayout>
+          // <SecureLayout>
             <Analysis />
-          </SecureLayout>
+          /* </SecureLayout> */
         }
       />
     </Routes>
