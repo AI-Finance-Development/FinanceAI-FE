@@ -7,6 +7,9 @@
     justify-content: center;
     gap: 7rem;
     padding: 0 5rem;
+    background: linear-gradient(180deg, #536EAF 9%, #232E49 43%, #2B395A 100%),
+linear-gradient(180deg, #839FE2 0%, #4D6398 86%, #324267 100%);
+
 }
 
 .header-title span{
