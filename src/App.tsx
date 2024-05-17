@@ -33,7 +33,7 @@ function App() {
         element={
           <SecureLayout>
             <Analysis />
-          </SecureLayout>
+          </SecureLayout> 
         }
       />
     </Routes>
