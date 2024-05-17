@@ -13,7 +13,7 @@ const SecureLayout = (props: SecureLayoutProps) => {
     const navigate = useNavigate();
 
     if (userInfo === null || userInfo === undefined) {
-        return navigate('/auth')
+       return navigate('/auth')
     }
 
     return props.children;

@@ -1,23 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './auth-page.css'
 import { Col, Image, Row } from 'antd'
 import logo from '../../assets/logo.png';
 import AuthPart from '../../page-parts/auth-part/auth-part';
-import { useAtom } from 'jotai';
-import { userInfoAtom } from '../../store/global-atoms';
-import { useNavigate } from 'react-router-dom';
 
 const AuthPage = () => {
-
-    const navigate = useNavigate();
-    const userInfo = useAtom(userInfoAtom);
-
-    useEffect(() => {
-        if (userInfo !== null && userInfo !== undefined) {
-            return navigate('/home')
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [userInfo])
 
     return (
         <Row className='background'>

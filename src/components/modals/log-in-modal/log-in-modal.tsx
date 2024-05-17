@@ -18,6 +18,7 @@ interface LogInModalProps extends ModalProps {
 const LogInModal = (props: LogInModalProps) => {
 
     const navigate = useNavigate();
+    const { t } = useTranslation();
     const { AuthApi } = useAxiosServiceClient();
     const [,setUserInfo] = useAtom(userInfoAtom);
 
@@ -32,7 +33,6 @@ const LogInModal = (props: LogInModalProps) => {
             })
             .catch((err) => console.log("err: ", err))
         }
-    const { t } = useTranslation();
 
     return (
         <Modal {...props} footer={null}>
