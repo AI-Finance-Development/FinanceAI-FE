@@ -3,8 +3,7 @@ import React from "react";
 import grafik from "../../assets/grafik.png";
 import "./analysis-page.css";
 import PrimaryButton from "../../components/atomics/primary-button/primary-button";
-import SecondaryButton from "../../components/atomics/secondary-button/secondary-button";
-import Navbar from "../../layouts/navbar/navbar";
+
 const Analysis = () => {
   return (
     <Row className="Analiz">

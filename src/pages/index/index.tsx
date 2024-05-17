@@ -4,6 +4,9 @@ import HowItWorks from "../../page-parts/how-it-works/how-it-works";
 import Startpage from "../../page-parts/start-page/start-page";
 
 
+
+
+
 const Index = () => {
   return (
     <>
@@ -15,7 +18,6 @@ const Index = () => {
       <br></br>
       <br></br>
       <br></br>
-     
     </>
   );
 };
