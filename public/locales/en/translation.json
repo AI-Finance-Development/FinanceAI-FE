@@ -17,6 +17,8 @@
   "components.sign-up-modal.privacy": "I agree with Terms and Privacy",
   " components.sign-up-modal.details": "Please enter your details ",
   "toastMessage.success.log-in": "Welcome",
-  "toastMessage.error.log-in": "Wrong user informations"
+  "toastMessage.error.log-in": "Wrong user informations",
+  "toastMessage.success.sign-up":"Registration successful.",
+  "toastMessage.error.sign-up":"Registration failed."
 
 }

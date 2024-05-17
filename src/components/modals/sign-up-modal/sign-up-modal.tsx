@@ -5,7 +5,7 @@ import PrimaryButton from '../../atomics/primary-button/primary-button'
 import { useTranslation } from 'react-i18next'
 import FormLabel from '../../atomics/form-label/form-label'
 import { useAtom } from 'jotai'
-import { userInfoAtom } from '../../../store/global-atoms'
+import { messageAtom, userInfoAtom } from '../../../store/global-atoms'
 import { useAxiosServiceClient } from '../../../services/axios'
 
 interface SignUpModalProps extends ModalProps { }
@@ -13,21 +13,25 @@ interface SignUpModalProps extends ModalProps { }
 const SignUpModal = (props: SignUpModalProps) => {
 
     const { AuthApi } = useAxiosServiceClient();
-    const [,setUserInfo] = useAtom(userInfoAtom);
-
+    const [, setMessage] = useAtom(messageAtom);
     const { t } = useTranslation();
 
     const onFinish = async (values: any) => {
         await AuthApi.SignUp(values)
         .then((resp) => {
             if(resp.data.data.username){
-                setUserInfo(resp.data.data.username)
-            }else{
-
+                setMessage({
+                    type: "success",
+                    message: t('toastMessage.success.sign-up')
+                })
             }
         })
-        .catch((err) => console.log("err: ", err))
-    console.log("asassd")
+        .catch((err) => {
+            setMessage({
+                type: "error"
+                , message: t('toastMessage.error.sign-up')
+            })
+        })
     }
     
     

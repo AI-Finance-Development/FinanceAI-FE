@@ -18,5 +18,7 @@
   "components.sign-up-modal.privacy": "Şartlar ve Gizlilik'i kabul ediyorum",
   "components.sign-up-modal.details": "Lütfen bilgilerinizi girin",
   "toastMessage.success.log-in":"Hoş Geldiniz.",
-  "toastMessage.error.log-in":"Kullanıcı Bulunamadı."
+  "toastMessage.error.log-in":"Kullanıcı Bulunamadı.",
+  "toastMessage.success.sign-up":"Kayıt başarılı.",
+  "toastMessage.error.sign-up":"Kayıt yapılamadı."
 }
