@@ -18,7 +18,7 @@ const SignUpModal = (props: SignUpModalProps) => {
     const { t } = useTranslation();
 
     const onFinish = async (values: any) => {
-        await AuthApi.LogIn(values)
+        await AuthApi.SignUp(values)
         .then((resp) => {
             if(resp.data.data.username){
                 setUserInfo(resp.data.data.username)
