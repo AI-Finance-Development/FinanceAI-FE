@@ -7,7 +7,7 @@ import { useAxiosServiceClient } from '../../../services/axios'
 import { useTranslation } from 'react-i18next'
 import FormLabel from '../../atomics/form-label/form-label'
 import { useAtom } from 'jotai'
-import { messageAtom, userInfoAtom } from '../../../store/global-atoms'
+import { loadingAtom, messageAtom, userInfoAtom } from '../../../store/global-atoms'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -22,7 +22,7 @@ const LogInModal = (props: LogInModalProps) => {
     const [, setMessage] = useAtom(messageAtom);
     const { AuthApi } = useAxiosServiceClient();
     const [, setUserInfo] = useAtom(userInfoAtom);
-
+const [loading] = useAtom(loadingAtom)
 
     const onFinish = async (values: any) => {
         await AuthApi.LogIn(values)
@@ -64,7 +64,7 @@ const LogInModal = (props: LogInModalProps) => {
                         </Form.Item>
                     </FormLabel>
                     <Form.Item>
-                        <PrimaryButton htmlType='submit' buttontext={t('page-parts.auth-part.logIn')}></PrimaryButton>
+                        <PrimaryButton loading={loading} htmlType='submit' buttontext={t('page-parts.auth-part.logIn')}></PrimaryButton>
                     </Form.Item>
                 </Form>
             </div>

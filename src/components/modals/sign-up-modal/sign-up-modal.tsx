@@ -5,7 +5,7 @@ import PrimaryButton from '../../atomics/primary-button/primary-button';
 import { useTranslation } from 'react-i18next';
 import FormLabel from '../../atomics/form-label/form-label';
 import { useAtom } from 'jotai';
-import { messageAtom, userInfoAtom } from '../../../store/global-atoms';
+import { loadingAtom, messageAtom, userInfoAtom } from '../../../store/global-atoms';
 import { useAxiosServiceClient } from '../../../services/axios';
 import { Input } from 'antd'; 
 
@@ -15,7 +15,7 @@ const SignUpModal = (props: SignUpModalProps) => {
     const { AuthApi } = useAxiosServiceClient();
     const [, setMessage] = useAtom(messageAtom);
     const { t } = useTranslation();
-
+    const [loading] = useAtom(loadingAtom)
     const onFinish = async (values: any) => {
         await AuthApi.SignUp(values)
             .then((resp) => {
@@ -63,7 +63,7 @@ const SignUpModal = (props: SignUpModalProps) => {
                         <Form.Item name={"checkbox"} valuePropName="checked">
                             <Checkbox>{t('components.sign-up-modal.privacy')}</Checkbox>
                         </Form.Item>
-                        <PrimaryButton htmlType='submit' buttontext={t('page-parts.auth-part.signUp')} />
+                        <PrimaryButton loading={loading} htmlType='submit' buttontext={t('page-parts.auth-part.signUp')} />
                     </Form.Item>
                 </Form>
                 <SignUpModal open={isOpenSignUpModal} onCancel={() => { setOpenSignUpModal(false); }} />
