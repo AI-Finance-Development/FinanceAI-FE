@@ -1,6 +1,6 @@
 
 import './log-in-modal.css'
-import { Form, Modal, ModalProps, Space } from 'antd'
+import { Form, Input, Modal, ModalProps, Space } from 'antd'
 import FaiInput from '../../atomics/fai-input/fai-input'
 import PrimaryButton from '../../atomics/primary-button/primary-button'
 import { useAxiosServiceClient } from '../../../services/axios'
@@ -60,7 +60,7 @@ const LogInModal = (props: LogInModalProps) => {
                     </FormLabel>
                     <FormLabel label='Şifre'>
                         <Form.Item name={"password"}>
-                            <FaiInput size='large' />
+                            <Input.Password size='large' />
                         </Form.Item>
                     </FormLabel>
                     <Form.Item>
