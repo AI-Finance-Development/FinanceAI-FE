@@ -2,6 +2,7 @@ import axios from "axios";
 import { useAtom } from "jotai";
 import { loadingAtom } from "../store/global-atoms";
 import { AuthApi } from "../api/services/auth-api";
+import { TargetApi } from "../api/services/target-api";
 
 export const useAxiosServiceClient = () => {
   const [, setLoading] = useAtom(loadingAtom);
@@ -34,7 +35,8 @@ export const useAxiosServiceClient = () => {
   );
 
   const services = {
-    AuthApi: new AuthApi(axiosClient)
+    AuthApi: new AuthApi(axiosClient),
+    TargetApi: new TargetApi(axiosClient)
   }
 
   return {

@@ -5,7 +5,6 @@ interface FaiInputProps extends InputProps { }
 
 const FaiInput = (props: FaiInputProps) => {
     return (
-
         <Input {...props} />
     )
 }

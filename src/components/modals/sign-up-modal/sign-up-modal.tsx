@@ -5,7 +5,7 @@ import PrimaryButton from '../../atomics/primary-button/primary-button'
 import { useTranslation } from 'react-i18next'
 import FormLabel from '../../atomics/form-label/form-label'
 import { useAtom } from 'jotai'
-import { messageAtom, userInfoAtom } from '../../../store/global-atoms'
+import { messageAtom} from '../../../store/global-atoms'
 import { useAxiosServiceClient } from '../../../services/axios'
 
 interface SignUpModalProps extends ModalProps { }
