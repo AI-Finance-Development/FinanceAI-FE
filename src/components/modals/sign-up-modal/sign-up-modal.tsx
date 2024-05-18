@@ -1,41 +1,40 @@
 import React, { useState } from 'react'
-import { Checkbox, Form, Modal, ModalProps, Space } from 'antd'
+import { Checkbox, Form, Input, Modal, ModalProps, Space } from 'antd'
 import FaiInput from '../../atomics/fai-input/fai-input'
 import PrimaryButton from '../../atomics/primary-button/primary-button'
 import { useTranslation } from 'react-i18next'
 import FormLabel from '../../atomics/form-label/form-label'
 import { useAtom } from 'jotai'
-import { messageAtom} from '../../../store/global-atoms'
+import { loadingAtom, messageAtom} from '../../../store/global-atoms'
 import { useAxiosServiceClient } from '../../../services/axios'
 
 interface SignUpModalProps extends ModalProps { }
 
 const SignUpModal = (props: SignUpModalProps) => {
-
     const { AuthApi } = useAxiosServiceClient();
     const [, setMessage] = useAtom(messageAtom);
     const { t } = useTranslation();
-
+    const [loading] = useAtom(loadingAtom)
     const onFinish = async (values: any) => {
         await AuthApi.SignUp(values)
-        .then((resp) => {
-            if(resp.data.data.username){
-                setMessage({
-                    type: "success",
-                    message: t('toastMessage.success.sign-up')
-                })
-            }
-        })
-        .catch((err) => {
-            setMessage({
-                type: "error"
-                , message: t('toastMessage.error.sign-up')
+            .then((resp) => {
+                if (resp.data.data.username) {
+                    setMessage({
+                        type: "success",
+                        message: t('toastMessage.success.sign-up')
+                    });
+                }
             })
-        })
-    }
-    
-    
+            .catch((err) => {
+                setMessage({
+                    type: "error",
+                    message: t('toastMessage.error.sign-up')
+                });
+            });
+    };
+
     const [isOpenSignUpModal, setOpenSignUpModal] = useState(false);
+
     return (
         <Modal {...props} footer={null}>
             <div className='sign-up-container'>
@@ -56,25 +55,20 @@ const SignUpModal = (props: SignUpModalProps) => {
                     </FormLabel>
                     <FormLabel label={t('components.sign-up-modal.password')}>
                         <Form.Item name={"password"}>
-                            <FaiInput size='large' placeholder="At least 8 character" />
+                            <Input.Password size='large' placeholder="At least 8 characters" />
                         </Form.Item>
                     </FormLabel>
                     <Form.Item>
-                    
-                        <Form.Item name={"checkbox"}>
-                        <Checkbox>{t('components.sign-up-modal.privacy')}</Checkbox>
+                        <Form.Item name={"checkbox"} valuePropName="checked">
+                            <Checkbox>{t('components.sign-up-modal.privacy')}</Checkbox>
                         </Form.Item>
-                  
-                        
-                        <PrimaryButton htmlType='submit' buttontext={t('page-parts.auth-part.signUp')} ></PrimaryButton>
-                       
+                        <PrimaryButton loading={loading} htmlType='submit' buttontext={t('page-parts.auth-part.signUp')} />
                     </Form.Item>
                 </Form>
-                
-                <SignUpModal open={isOpenSignUpModal} onCancel={() => { setOpenSignUpModal(false)}} />
+                <SignUpModal open={isOpenSignUpModal} onCancel={() => { setOpenSignUpModal(false); }} />
             </div>
         </Modal>
-    )
-}
+    );
+};
 
-export default SignUpModal
+export default SignUpModal;
