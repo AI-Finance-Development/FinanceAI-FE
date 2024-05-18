@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import { Checkbox, Form, Modal, ModalProps, Space } from 'antd';
-import FaiInput from '../../atomics/fai-input/fai-input';
-import PrimaryButton from '../../atomics/primary-button/primary-button';
-import { useTranslation } from 'react-i18next';
-import FormLabel from '../../atomics/form-label/form-label';
-import { useAtom } from 'jotai';
-import { loadingAtom, messageAtom, userInfoAtom } from '../../../store/global-atoms';
-import { useAxiosServiceClient } from '../../../services/axios';
-import { Input } from 'antd'; 
+import React, { useState } from 'react'
+import { Checkbox, Form, Input, Modal, ModalProps, Space } from 'antd'
+import FaiInput from '../../atomics/fai-input/fai-input'
+import PrimaryButton from '../../atomics/primary-button/primary-button'
+import { useTranslation } from 'react-i18next'
+import FormLabel from '../../atomics/form-label/form-label'
+import { useAtom } from 'jotai'
+import { loadingAtom, messageAtom} from '../../../store/global-atoms'
+import { useAxiosServiceClient } from '../../../services/axios'
 
 interface SignUpModalProps extends ModalProps { }
 

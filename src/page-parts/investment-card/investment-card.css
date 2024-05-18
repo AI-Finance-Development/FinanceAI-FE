@@ -1,14 +1,3 @@
-.card-container{
-    display: flex;
-    flex-direction:column ;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
-
-.card-container button{
-    width: 60%;
-}
 
 .card-message{
     font-weight: 300;

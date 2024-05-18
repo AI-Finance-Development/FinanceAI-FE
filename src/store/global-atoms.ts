@@ -2,6 +2,7 @@ import { atom } from "jotai";
 import { atomWithReset, atomWithStorage } from "jotai/utils";
 
 export type UserInfo = {
+  id: number;
   username: string;
 };
 
@@ -12,13 +13,12 @@ export const userInfoAtom = atomWithStorage<UserInfo | undefined>(
   undefined
 );
 
-
 export type ToastMessage = {
   message: string;
-  type: 'info' | 'error' | 'warning' | 'success' | 'loading';
+  type: "info" | "error" | "warning" | "success" | "loading";
 };
 
 export const messageAtom = atomWithReset<ToastMessage>({
-  message: '',
-  type: 'info',
+  message: "",
+  type: "info",
 });

@@ -20,5 +20,8 @@
   "toastMessage.success.log-in":"Hoş Geldiniz.",
   "toastMessage.error.log-in":"Kullanıcı Bulunamadı.",
   "toastMessage.success.sign-up":"Kayıt başarılı.",
-  "toastMessage.error.sign-up":"Kayıt yapılamadı."
+  "toastMessage.error.sign-up":"Kayıt yapılamadı.",
+  "page-parts.analysis-card.button1":"Hedefleri Gör",
+  "page-parts.analysis-card.button2":"Hedef Oluştur",
+  "modals.add-target.target":"Hedef"
 }

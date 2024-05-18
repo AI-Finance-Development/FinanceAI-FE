@@ -28,7 +28,8 @@ const [loading] = useAtom(loadingAtom)
         await AuthApi.LogIn(values)
             .then((resp) => {
                 if (resp.data.data.username) {
-                    setUserInfo(resp.data.data.username)
+                    var {id,username} = resp.data.data
+                    setUserInfo({id,username:username})
                     props.onSuccessAction && props.onSuccessAction();
                     setMessage({
                         type: "success",

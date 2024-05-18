@@ -18,7 +18,7 @@
   " components.sign-up-modal.details": "Please enter your details ",
   "toastMessage.success.log-in": "Welcome",
   "toastMessage.error.log-in": "Wrong user informations",
-  "toastMessage.success.sign-up":"Registration successful.",
-  "toastMessage.error.sign-up":"Registration failed."
-
+  "toastMessage.success.sign-up": "Registration successful.",
+  "toastMessage.error.sign-up": "Registration failed.",
+  "modals.add-target.target": "Hedef"
 }
