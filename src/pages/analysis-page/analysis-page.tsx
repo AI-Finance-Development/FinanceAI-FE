@@ -1,13 +1,29 @@
+import React, { useEffect, useState } from "react";
 import { Row, Image, Col } from "antd";
-import React, { useState } from "react";
 import grafik from "../../assets/grafik.png";
 import "./analysis-page.css";
 import TargetCard from "../../page-parts/target-card/target-card";
 import AddTargetModal from "../../components/modals/add-target-modal/add-target-modal";
+import { useAxiosServiceClient } from "../../services/axios";
+import { useAtom } from "jotai";
+import { userInfoAtom } from "../../store/global-atoms";
 
 const Analysis = () => {
 
+  const [userInfo] = useAtom(userInfoAtom);
+  const { ExpenseApi } = useAxiosServiceClient();
   const [isOpenAddTargetModal, setOpenAddTargetModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (userInfo && userInfo.id) {
+      ExpenseApi.GetAll(userInfo.id).then((response) => {
+        console.log("response analysis: ", response)
+      }).catch((err) => {
+        console.log("err analysis: ", err)
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userInfo?.id])
 
   return (
     <>
