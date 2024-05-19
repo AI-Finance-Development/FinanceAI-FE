@@ -31,6 +31,7 @@ const [loading] = useAtom(loadingAtom)
                     var {id,username} = resp.data.data
                     setUserInfo({id,username:username})
                     props.onSuccessAction && props.onSuccessAction();
+                   
                     setMessage({
                         type: "success",
                         message: t('toastMessage.success.log-in')
