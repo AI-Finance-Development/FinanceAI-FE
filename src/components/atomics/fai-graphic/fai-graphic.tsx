@@ -1,16 +1,18 @@
-import { PieChart } from '@mui/x-charts'
-import React from 'react'
+import React from 'react';
+import { PieChart, } from '@mui/x-charts'
+import { ExpenseListModel } from '../../../api/models/expense-list-model';
 
-const FaiGraphic = () => {
+export interface FaiGraphicProps {
+    expenses: ExpenseListModel[];
+}
 
-    const data = [
-        { id: 0, value: 10, label: 'series A' },
-        { id: 1, value: 15, label: 'series B' },
-        { id: 2, value: 20, label: 'series C' },
-    ];
+const FaiGraphic = (props:FaiGraphicProps) => {
+
+    const data = props.expenses.map(x=>({value:x.amount,label:x.category}));
 
     return (
         <PieChart
+        {...props}
             series={[
                 {
                     data,

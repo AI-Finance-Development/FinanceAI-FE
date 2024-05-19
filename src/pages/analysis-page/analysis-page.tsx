@@ -7,17 +7,19 @@ import { useAxiosServiceClient } from "../../services/axios";
 import { useAtom } from "jotai";
 import { userInfoAtom } from "../../store/global-atoms";
 import FaiGraphic from "../../components/atomics/fai-graphic/fai-graphic";
+import { ExpenseListModel } from "../../api/models/expense-list-model";
 
 const Analysis = () => {
 
   const [userInfo] = useAtom(userInfoAtom);
   const { ExpenseApi } = useAxiosServiceClient();
+  const [expenses, setExpenses] = useState<ExpenseListModel[]>([]);
   const [isOpenAddTargetModal, setOpenAddTargetModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (userInfo && userInfo.id) {
       ExpenseApi.GetAll(userInfo.id).then((response) => {
-        console.log("response analysis: ", response)
+        setExpenses(response.data.data)
       }).catch((err) => {
         console.log("err analysis: ", err)
       })
@@ -30,7 +32,7 @@ const Analysis = () => {
       <Row className="Analiz">
         <Col lg={3}></Col>
         <Col xs={0} sm={0} md={0} lg={9} className="left-c">
-          <FaiGraphic />
+          <FaiGraphic expenses={expenses} />
         </Col>
         <Col sm={24} md={24} lg={6}>
           <TargetCard onClickFirstButton={() => { setOpenAddTargetModal(true) }} onClickSecondButton={() => { console.log("doki") }} />
