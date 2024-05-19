@@ -10,4 +10,5 @@ export class TargetApi extends BaseApi{
     public async GetUserTarget(id:number){
         return await this.axios.get(`${this.basePath}/target/${id}`);
     }
+    
 }

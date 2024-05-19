@@ -67,7 +67,7 @@ const Analysis = () => {
                       key: "1",
                       label: "",
                       icon: target === undefined ? <TitleWithSubtitle title="Hedef Oluştur" subtitle="Harcamalarından tasarruf etmek mi istiyorsun? O zaman hedef oluştur." /> : <TitleWithSubtitle title="Hedefini İncele" subtitle="Harcamalarından tasarruf etmek mi istiyorsun? O zaman hedef oluştur." />,
-                      children: target === undefined ? <AddTarget /> : <ViewTarget data={target || { amount: 15, loadDate: "str", userId: 1 }} />
+                      children: target === undefined ? <AddTarget onSuccessAction={()=>fetchTarget(userInfo?.id||1)}/> : <ViewTarget data={target || { amount: 15, loadDate: "str", userId: 1 }} />
                     },
                     {
                       key: "2",
