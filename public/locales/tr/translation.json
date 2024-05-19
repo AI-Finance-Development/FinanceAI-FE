@@ -23,5 +23,8 @@
   "toastMessage.error.sign-up":"Kayıt yapılamadı.",
   "page-parts.analysis-card.button1":"Hedefleri Gör",
   "page-parts.analysis-card.button2":"Hedef Oluştur",
+  "page-parts.expense-list.title":"Ne Harcadın",
+  "page-parts.expense-list.subtitle":"Bu ay yapmış olduğun harcamalar",
+  "page-parts.add-target.button":"Hedef Oluştur",
   "modals.add-target.target":"Hedef"
 }

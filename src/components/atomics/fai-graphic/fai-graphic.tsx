@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart, } from '@mui/x-charts'
+import { PieChart } from '@mui/x-charts'
 import { ExpenseListModel } from '../../../api/models/expense-list-model';
 import { useAtom } from 'jotai';
 import { loadingAtom } from '../../../store/global-atoms';
@@ -23,7 +23,7 @@ const FaiGraphic = (props: FaiGraphicProps) => {
                     faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                 },
             ]}
-            height={300}
+            height={400}
         />
     )
 }

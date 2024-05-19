@@ -10,7 +10,6 @@ import Analysis from "./pages/analysis-page/analysis-page";
 import { useAtom } from "jotai";
 import { messageAtom } from "./store/global-atoms";
 import { message } from "antd";
-import LotCard from "./page-parts/lot-card/lot-card";
 
 function App() {
 
@@ -65,12 +64,6 @@ function App() {
         }
       />
     </Routes>
-    // <>
-    //   <LotCard title={'Türk Hava Yolları'} value={"318.00"} />
-    //   <LotCard title={'Pegasus'} value={"129.23"} />
-    //   <LotCard title={'Aselsan'} value={"318.00"} />
-    // </>
-
   );
 }
 

@@ -1,48 +1,87 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col } from "antd";
+import './analysis-page.css'
+import { Row, Col, Tabs } from "antd";
 import "./analysis-page.css";
-import TargetCard from "../../page-parts/target-card/target-card";
 import AddTargetModal from "../../components/modals/add-target-modal/add-target-modal";
 import { useAxiosServiceClient } from "../../services/axios";
 import { useAtom } from "jotai";
 import { userInfoAtom } from "../../store/global-atoms";
-import FaiGraphic from "../../components/atomics/fai-graphic/fai-graphic";
 import { ExpenseListModel } from "../../api/models/expense-list-model";
-import FaiList from "../../components/atomics/fai-list/fai-list";
+import ExpenseList from "../../page-parts/expense-list/expense-list";
+import GraphicAnalysis from "../../page-parts/graphic-analysis/graphic-analysis";
+import TitleWithSubtitle from "../../components/atomics/title-with-subtitle/title-with-subtitle";
+import AddTarget from "../../page-parts/add-target/add-target";
+import { ListUserTargetModel } from "../../api/models/list-user-target-model";
+import ViewTarget from "../../page-parts/view-target/view-target";
+
 
 const Analysis = () => {
-
   const [userInfo] = useAtom(userInfoAtom);
-  const { ExpenseApi } = useAxiosServiceClient();
+  const { ExpenseApi, TargetApi } = useAxiosServiceClient();
+  const [target, setTarget] = useState<ListUserTargetModel | undefined>(undefined)
   const [expenses, setExpenses] = useState<ExpenseListModel[]>([]);
   const [isOpenAddTargetModal, setOpenAddTargetModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (userInfo && userInfo.id) {
-      ExpenseApi.GetAll(userInfo.id).then((response) => {
-        setExpenses(response.data.data)
-      }).catch((err) => {
-        console.log("err analysis: ", err)
-      })
+      fetchTarget(userInfo.id)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo?.id])
 
+  useEffect(() => {
+    if (userInfo && userInfo.id) {
+      fetchExpenses(userInfo.id)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userInfo?.id])
+
+  const fetchTarget = (id: number) => {
+    TargetApi.GetUserTarget(id).then((response) => {
+      setTarget(response.data.data)
+    }).catch(() => { console.log("err fetch target") })
+  }
+
+  const fetchExpenses = (id: number) => {
+    ExpenseApi.GetAll(id).then((response) => {
+      setExpenses(response.data.data)
+    }).catch((err) => {
+      console.log("err analysis: ", err)
+    })
+  }
+
   return (
     <>
-      <Row className="Analiz">
-        <Col lg={3}></Col>
-
-        <Col xs={0} sm={0} md={12} lg={9} className="left-c">
-          <FaiList expenses={[...expenses, ...expenses, ...expenses]} />
-          {/* <FaiGraphic expenses={expenses} /> */}
+      <Row className="analysis-container">
+        <Col span={4}></Col>
+        <Col span={16} >
+          <div style={{ width: "100%", padding: "2rem 0", gap: "3rem" }}>
+            <ExpenseList expenses={[...expenses, ...expenses, ...expenses]} />
+            <GraphicAnalysis expenses={expenses} />
+            <div>
+              <Tabs
+                defaultActiveKey="1"
+                items={
+                  [
+                    {
+                      key: "1",
+                      label: "",
+                      icon: target === undefined ? <TitleWithSubtitle title="Hedef Oluştur" subtitle="Harcamalarından tasarruf etmek mi istiyorsun? O zaman hedef oluştur." /> : <TitleWithSubtitle title="Hedefini İncele" subtitle="Harcamalarından tasarruf etmek mi istiyorsun? O zaman hedef oluştur." />,
+                      children: target === undefined ? <AddTarget /> : <ViewTarget data={target || { amount: 15, loadDate: "str", userId: 1 }} />
+                    },
+                    {
+                      key: "2",
+                      label: "",
+                      icon: <TitleWithSubtitle title="AI Tavsiyelerini Gör" subtitle="Harcamalarından tasarruf etmek için tavsiyleri gör." />,
+                      children: <p>de</p>
+                    }
+                  ]
+                }
+              />
+            </div>
+          </div>
         </Col>
-        <Col sm={24} md={24} lg={9}>
-          {/* <TargetCard onClickFirstButton={() => { setOpenAddTargetModal(true) }} onClickSecondButton={() => { console.log("doki") }} /> */}
-          <FaiGraphic expenses={expenses} />
-
-        </Col>
-        <Col lg={3}></Col>
+        <Col span={4}></Col>
       </Row>
       <AddTargetModal open={isOpenAddTargetModal} onCancel={() => { setOpenAddTargetModal(false) }} />
     </>
