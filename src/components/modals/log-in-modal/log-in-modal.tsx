@@ -30,6 +30,7 @@ const LogInModal = (props: LogInModalProps) => {
                 if (resp.data.data.username) {
                     setUserInfo(resp.data.data.username)
                     props.onSuccessAction && props.onSuccessAction();
+                   
                     setMessage({
                         type: "success",
                         message: t('toastMessage.success.log-in')
