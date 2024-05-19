@@ -1,18 +1,21 @@
 import React from 'react';
 import { PieChart, } from '@mui/x-charts'
 import { ExpenseListModel } from '../../../api/models/expense-list-model';
+import { useAtom } from 'jotai';
+import { loadingAtom } from '../../../store/global-atoms';
 
 export interface FaiGraphicProps {
     expenses: ExpenseListModel[];
 }
 
-const FaiGraphic = (props:FaiGraphicProps) => {
-
-    const data = props.expenses.map(x=>({value:x.amount,label:x.category}));
+const FaiGraphic = (props: FaiGraphicProps) => {
+    const [loading] = useAtom(loadingAtom)
+    const data = props.expenses.map(x => ({ value: x.amount, label: x.category }));
 
     return (
         <PieChart
-        {...props}
+            {...props}
+            loading={loading}
             series={[
                 {
                     data,

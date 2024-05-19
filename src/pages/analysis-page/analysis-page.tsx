@@ -8,6 +8,7 @@ import { useAtom } from "jotai";
 import { userInfoAtom } from "../../store/global-atoms";
 import FaiGraphic from "../../components/atomics/fai-graphic/fai-graphic";
 import { ExpenseListModel } from "../../api/models/expense-list-model";
+import FaiList from "../../components/atomics/fai-list/fai-list";
 
 const Analysis = () => {
 
@@ -31,11 +32,15 @@ const Analysis = () => {
     <>
       <Row className="Analiz">
         <Col lg={3}></Col>
-        <Col xs={0} sm={0} md={0} lg={9} className="left-c">
-          <FaiGraphic expenses={expenses} />
+
+        <Col xs={0} sm={0} md={12} lg={9} className="left-c">
+          <FaiList expenses={[...expenses, ...expenses, ...expenses]} />
+          {/* <FaiGraphic expenses={expenses} /> */}
         </Col>
-        <Col sm={24} md={24} lg={6}>
-          <TargetCard onClickFirstButton={() => { setOpenAddTargetModal(true) }} onClickSecondButton={() => { console.log("doki") }} />
+        <Col sm={24} md={24} lg={9}>
+          {/* <TargetCard onClickFirstButton={() => { setOpenAddTargetModal(true) }} onClickSecondButton={() => { console.log("doki") }} /> */}
+          <FaiGraphic expenses={expenses} />
+
         </Col>
         <Col lg={3}></Col>
       </Row>
