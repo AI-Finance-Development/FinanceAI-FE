@@ -1,5 +1,5 @@
-import { Form, Modal, ModalProps, Space } from 'antd'
 import React from 'react'
+import { Form, Modal, ModalProps, } from 'antd'
 import FormLabel from '../../atomics/form-label/form-label'
 import PrimaryButton from '../../atomics/primary-button/primary-button'
 import { useTranslation } from 'react-i18next'
@@ -7,35 +7,37 @@ import FaiSelect from '../../atomics/fai-select/fai-select'
 import { useAxiosServiceClient } from '../../../services/axios'
 import { useAtom } from 'jotai'
 import { loadingAtom, messageAtom, userInfoAtom } from '../../../store/global-atoms'
+import TitleWithSubtitle from '../../atomics/title-with-subtitle/title-with-subtitle'
 
 interface AddTargetModalProps extends ModalProps {
+    id?: number;
     onSuccessAction?: () => void;
 }
 
-const AddTargetModal = (props: AddTargetModalProps) => {
+const UpdateTargetModal = (props: AddTargetModalProps) => {
 
     const { t } = useTranslation();
     const [loading] = useAtom(loadingAtom);
     const [userInfo] = useAtom(userInfoAtom);
-    const [,setMessage] = useAtom(messageAtom);
-    const {TargetApi} = useAxiosServiceClient();
+    const [, setMessage] = useAtom(messageAtom);
+    const { TargetApi } = useAxiosServiceClient();
 
-    const onFinish = (values:{amount:number}) => {
-        if(userInfo && userInfo.id){
-            let data = {amount:values.amount,userId:userInfo.id}
-        
-            TargetApi.Add(data).then((response)=>{
-                if(response.data.success){
+    const onFinish = (values: { amount: number }) => {
+        if (props.id && userInfo && userInfo.id) {
+            let data = { id: props.id, amount: values.amount, userId: userInfo.id }
+            TargetApi.Update(data).then((response) => {
+                if (response.data.success) {
                     setMessage({
-                        type:"success",
-                        message:"Hedef Başarıyla Oluşturuldu"
+                        type: "success",
+                        message: "Hedef Başarıyla Güncellendi"
                     })
-
+                    props.onSuccessAction && props.onSuccessAction()
                 }
-            }).catch((err)=>{
-                console.log("err3: ",err)
-                setMessage({type:"error",message:"err.data.message"})
+            }).catch((err) => {
+                console.log("err: ", err)
+                setMessage({ type: "error", message: "err.data.message" })
             })
+
         }
     }
 
@@ -43,10 +45,7 @@ const AddTargetModal = (props: AddTargetModalProps) => {
     return (
         <Modal {...props} footer={null}>
             <div className='sign-up-container'>
-                <Space direction='vertical'>
-                    <span className='title'>Hedef Oluştur</span>
-                    <span className='subTitle'>Please enter your info</span>
-                </Space>
+                <TitleWithSubtitle title='Hedefini Güncelle' subtitle='Daha iyi bir hedef mi belirleyeceksin? O halde hedeflerini güncelle!' />
                 <Form layout='vertical' style={{ marginTop: "1.5rem" }} onFinish={onFinish}>
                     <FormLabel label={t('modals.add-target.target')}>
                         <Form.Item name={"amount"}>
@@ -66,4 +65,4 @@ const AddTargetModal = (props: AddTargetModalProps) => {
         </Modal>)
 }
 
-export default AddTargetModal
+export default UpdateTargetModal

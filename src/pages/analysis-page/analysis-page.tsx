@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import './analysis-page.css'
 import { Row, Col, Tabs } from "antd";
 import "./analysis-page.css";
-import AddTargetModal from "../../components/modals/add-target-modal/add-target-modal";
 import { useAxiosServiceClient } from "../../services/axios";
 import { useAtom } from "jotai";
 import { userInfoAtom } from "../../store/global-atoms";
@@ -13,14 +12,15 @@ import TitleWithSubtitle from "../../components/atomics/title-with-subtitle/titl
 import AddTarget from "../../page-parts/add-target/add-target";
 import { ListUserTargetModel } from "../../api/models/list-user-target-model";
 import ViewTarget from "../../page-parts/view-target/view-target";
+import { useTranslation } from "react-i18next";
 
 
 const Analysis = () => {
+  const { t } = useTranslation();
   const [userInfo] = useAtom(userInfoAtom);
   const { ExpenseApi, TargetApi } = useAxiosServiceClient();
   const [target, setTarget] = useState<ListUserTargetModel | undefined>(undefined)
   const [expenses, setExpenses] = useState<ExpenseListModel[]>([]);
-  const [isOpenAddTargetModal, setOpenAddTargetModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (userInfo && userInfo.id) {
@@ -66,13 +66,19 @@ const Analysis = () => {
                     {
                       key: "1",
                       label: "",
-                      icon: target === undefined ? <TitleWithSubtitle title="Hedef Oluştur" subtitle="Harcamalarından tasarruf etmek mi istiyorsun? O zaman hedef oluştur." /> : <TitleWithSubtitle title="Hedefini İncele" subtitle="Harcamalarından tasarruf etmek mi istiyorsun? O zaman hedef oluştur." />,
-                      children: target === undefined ? <AddTarget onSuccessAction={()=>fetchTarget(userInfo?.id||1)}/> : <ViewTarget data={target || { amount: 15, loadDate: "str", userId: 1 }} />
+                      icon: target === undefined
+                        ? <TitleWithSubtitle title={t('pages.analysis-page.add-target.title')}
+                          subtitle={t('pages.analysis-page.add-target.title')} />
+                        : <TitleWithSubtitle title={t('pages.analysis-page.view-target.title')}
+                          subtitle={t('pages.analysis-page.view-target.subtitle')} />,
+                      children: target === null || target === undefined ?
+                        <AddTarget onSuccessAction={() => fetchTarget(userInfo?.id || 1)} />
+                        : <ViewTarget data={target!} onSuccessAction={() => { fetchTarget(userInfo?.id || 0) }} />
                     },
                     {
                       key: "2",
                       label: "",
-                      icon: <TitleWithSubtitle title="AI Tavsiyelerini Gör" subtitle="Harcamalarından tasarruf etmek için tavsiyleri gör." />,
+                      icon: <TitleWithSubtitle title={t('pages.analysis-page.ai-comment.title')} subtitle={t('pages.analysis-page.ai-comment.subtitle')} />,
                       children: <p>de</p>
                     }
                   ]
@@ -83,7 +89,6 @@ const Analysis = () => {
         </Col>
         <Col span={4}></Col>
       </Row>
-      <AddTargetModal open={isOpenAddTargetModal} onCancel={() => { setOpenAddTargetModal(false) }} />
     </>
   );
 };

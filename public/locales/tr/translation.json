@@ -26,5 +26,11 @@
   "page-parts.expense-list.title":"Ne Harcadın",
   "page-parts.expense-list.subtitle":"Bu ay yapmış olduğun harcamalar",
   "page-parts.add-target.button":"Hedef Oluştur",
+  "pages.analysis-page.add-target.title":"Hedef Oluştur",
+  "pages.analysis-page.add-target.subtitle":"Harcamalarından tasarruf etmek mi istiyorsun? O zaman hedef oluştur.",
+  "pages.analysis-page.view-target.title":"Hedefini İncele",
+  "pages.analysis-page.view-target.subtitle":"Harcamalarından tasarruf etmek mi istiyorsun? O zaman hedef oluştur.",
+  "pages.analysis-page.ai-comment.title":"AI Tavsiyelerini Gör",
+  "pages.analysis-page.ai-comment.subtitle":"Harcamalarından tasarruf etmek için tavsiyleri gör.",
   "modals.add-target.target":"Hedef"
 }
