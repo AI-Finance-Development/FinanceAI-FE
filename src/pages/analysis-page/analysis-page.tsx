@@ -13,6 +13,7 @@ import AddTarget from "../../page-parts/add-target/add-target";
 import { ListUserTargetModel } from "../../api/models/list-user-target-model";
 import ViewTarget from "../../page-parts/view-target/view-target";
 import { useTranslation } from "react-i18next";
+import AdviceList from "../../components/atomics/advice-list/advice-list";
 
 
 const Analysis = () => {
@@ -79,7 +80,7 @@ const Analysis = () => {
                       key: "2",
                       label: "",
                       icon: <TitleWithSubtitle title={t('pages.analysis-page.ai-comment.title')} subtitle={t('pages.analysis-page.ai-comment.subtitle')} />,
-                      children: <p>de</p>
+                      children: <AdviceList/>
                     }
                   ]
                 }
