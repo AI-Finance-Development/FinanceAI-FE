@@ -10,6 +10,7 @@ import Analysis from "./pages/analysis-page/analysis-page";
 import { useAtom } from "jotai";
 import { messageAtom } from "./store/global-atoms";
 import { message } from "antd";
+import LotDetailPage from "./pages/lot-detail-page/lot-detail-page";
 
 function App() {
 
@@ -60,6 +61,14 @@ function App() {
         element={
           <SecureLayout>
             <Analysis />
+          </SecureLayout>
+        }
+      />
+      <Route
+        path="/lot/detail"
+        element={
+          <SecureLayout>
+            <LotDetailPage />
           </SecureLayout>
         }
       />
