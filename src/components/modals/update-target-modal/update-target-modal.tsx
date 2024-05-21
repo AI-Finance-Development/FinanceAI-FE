@@ -21,6 +21,8 @@ const UpdateTargetModal = (props: AddTargetModalProps) => {
     const [userInfo] = useAtom(userInfoAtom);
     const [, setMessage] = useAtom(messageAtom);
     const { TargetApi } = useAxiosServiceClient();
+    const title = t('modals.title.update-target');
+    const subtitle = t('models.subtitle.update-taget');
 
     const onFinish = (values: { amount: number }) => {
         if (props.id && userInfo && userInfo.id) {
@@ -29,7 +31,7 @@ const UpdateTargetModal = (props: AddTargetModalProps) => {
                 if (response.data.success) {
                     setMessage({
                         type: "success",
-                        message: "Hedef Başarıyla Güncellendi"
+                        message: t('modals.succes.update-target')
                     })
                     props.onSuccessAction && props.onSuccessAction()
                 }
@@ -45,7 +47,7 @@ const UpdateTargetModal = (props: AddTargetModalProps) => {
     return (
         <Modal {...props} footer={null}>
             <div className='sign-up-container'>
-                <TitleWithSubtitle title='Hedefini Güncelle' subtitle='Daha iyi bir hedef mi belirleyeceksin? O halde hedeflerini güncelle!' />
+                <TitleWithSubtitle title= {title} subtitle={subtitle} />
                 <Form layout='vertical' style={{ marginTop: "1.5rem" }} onFinish={onFinish}>
                     <FormLabel label={t('modals.add-target.target')}>
                         <Form.Item name={"amount"}>
