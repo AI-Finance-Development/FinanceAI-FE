@@ -32,9 +32,6 @@
   "pages.analysis-page.view-target.subtitle":"Harcamalarından tasarruf etmek mi istiyorsun? O zaman hedef oluştur.",
   "pages.analysis-page.ai-comment.title":"AI Tavsiyelerini Gör",
   "pages.analysis-page.ai-comment.subtitle":"Harcamalarından tasarruf etmek için tavsiyleri gör.",
-  "modals.add-target.target":"Hedef",
-  "modals.succes.update-target'":"Hedef başarıyla güncellendi.",
-  "modals.title.update-target":"Hedefini güncelle.",
   "models.subtitle.update-taget" :"Daha iyi bir hedef mi belirleyeceksin? O halde hedeflerini güncelle!",
   "page.parts.update-target" : "Hedefini güncelle",
   "page.parts.delete-target" :"Hedefi sil",
@@ -52,6 +49,9 @@
   "modals.succes.delete-target":"Hedef Başarıyla Silindi",
   "modals.error.delete-target":"Hedef silinemedi.",
   "modals.button.delete": "Sil",
+  "modals.add-target.target":"Hedef",
+  "modals.succes.updateTarget":"Hedef başarıyla güncellendi.",
+  "modals.title.update-target":"Hedefini güncelle.",
   "investment.summary-and-goals": "Yatırım özeti ve hedeflerin",
   "button.view-now": "Hemen Gör",
   "howItWorks.how": "Nasıl",
@@ -61,6 +61,4 @@
   "howItWorks.step3" :"AI ile hedef oluşturun.",
   "howItWorks.step4" :" Hedefinize ulaşın kârınzı arttırın ",
   "page-parts.succes-target": "Hedef başarıyla oluşturuldu."
- 
-
 }
