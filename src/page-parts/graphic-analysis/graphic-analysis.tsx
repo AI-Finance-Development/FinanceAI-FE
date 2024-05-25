@@ -13,13 +13,11 @@ const GraphicAnalysis = (props: GraphicAnalysisProps) => {
     return (
         <div className='graphic-analysis-container'>
             <TitleWithSubtitle title='Harcama Analizi' subtitle='Yaptığın harcamaları grafiksel analiz et'/>
-            <Row>
-                <Col span={14}>
+            <Row justify={'space-between'}>
+                <Col span={20}>
                     <FaiGraphic expenses={props.expenses} />
                 </Col>
-                <Col span={10}>
-                    <p>asd</p>
-                </Col>
+                
             </Row>
         </div>
     )

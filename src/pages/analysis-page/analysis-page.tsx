@@ -56,7 +56,7 @@ const Analysis = () => {
       <Row className="analysis-container">
         <Col span={4}></Col>
         <Col span={16} >
-          <div style={{ width: "100%", padding: "2rem 0", gap: "3rem" }}>
+          <div className="body">
             <ExpenseList expenses={[...expenses, ...expenses, ...expenses]} />
             <GraphicAnalysis expenses={expenses} />
             <div>
