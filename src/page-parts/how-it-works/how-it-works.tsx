@@ -7,15 +7,17 @@ import step2 from '../../assets/3.png';
 import step3 from '../../assets/2.png';
 import step4 from '../../assets/4.png';
 import { ReactComponent as SVGDirection } from '../../assets/direction.svg';
-
+import { useTranslation } from 'react-i18next'
 
 const HowItWorks = () => {
+  const { t } = useTranslation();
+
   return (
     <div className='container'>
       <div className='header'>
         <Row justify={'center'} gutter={8}>
-          <Col><span style={{ color: "white" }} className='how-it-works-how'>Nasıl</span></Col>
-          <Col><span style={{ color: "#48C9C1" }}>Kullanılır</span></Col>
+          <Col><span style={{ color: "white" }} className='how-it-works-how'>{t('howItWorks.how')}</span></Col>
+          <Col><span style={{ color: "#48C9C1" }}>{t('howItWorks.use')}</span></Col>
         </Row>
       </div>
       <div className='cardText'>
@@ -27,12 +29,10 @@ const HowItWorks = () => {
                 hoverable={false}
                 cover={<img className='ikon' alt="example" src={step1} />}
               >
-                <Meta title="Giriş yapın ya da 
-kayıt olun"  />
+                <Meta title={t('howItWorks.step1')} />
               </Card>
               <SVGDirection />
             </Space>
-
           </Col>
           <Col xl={6} span={24}>
             <Space>
@@ -41,8 +41,7 @@ kayıt olun"  />
                 hoverable={false}
                 cover={<img className='ikon' alt="example" src={step3} />}
               >
-                <Meta title="Hesap özetinizi
-inceleyin"  />
+                <Meta title={t('howItWorks.step2')} />
               </Card>
               <SVGDirection />
             </Space>
@@ -54,8 +53,7 @@ inceleyin"  />
                 hoverable={false}
                 cover={<img className='ikon' alt="example" src={step4} />}
               >
-                <Meta title="AI ile hedef 
-oluşturun"  />
+                <Meta title={t('howItWorks.step3')} />
               </Card>
               <SVGDirection />
             </Space>
@@ -67,15 +65,14 @@ oluşturun"  />
                 hoverable={false}
                 cover={<img className='ikon' alt="example" src={step2} />}
               >
-                <Meta title="Hedefinize ulaşın
-kârınızı arttırın" />
+                <Meta title={t('howItWorks.step4')} />
               </Card>
             </Space>
-
           </Col>
         </Row>
       </div>
-    </div>  )
+    </div>
+  )
 }
 
 export default HowItWorks

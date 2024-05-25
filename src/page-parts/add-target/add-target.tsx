@@ -28,7 +28,7 @@ const AddTarget = (props: AddTargetProps) => {
                 if (response.data.success) {
                     setMessage({
                         type: "success",
-                        message: "Hedef Başarıyla Oluşturuldu"
+                        message: t('page-parts.succes-target')
                     })
                     props.onSuccessAction && props.onSuccessAction()
                 }
