@@ -2,12 +2,12 @@ import React from 'react'
 import { Form, Modal, ModalProps, } from 'antd'
 import FormLabel from '../../atomics/form-label/form-label'
 import PrimaryButton from '../../atomics/primary-button/primary-button'
-import { useTranslation } from 'react-i18next'
 import FaiSelect from '../../atomics/fai-select/fai-select'
 import { useAxiosServiceClient } from '../../../services/axios'
 import { useAtom } from 'jotai'
 import { loadingAtom, messageAtom, userInfoAtom } from '../../../store/global-atoms'
 import TitleWithSubtitle from '../../atomics/title-with-subtitle/title-with-subtitle'
+import { useTranslation } from 'react-i18next'
 
 interface AddTargetModalProps extends ModalProps {
     id?: number;
@@ -16,13 +16,11 @@ interface AddTargetModalProps extends ModalProps {
 
 const UpdateTargetModal = (props: AddTargetModalProps) => {
 
-    const { t } = useTranslation();
+    const {t} = useTranslation()
     const [loading] = useAtom(loadingAtom);
     const [userInfo] = useAtom(userInfoAtom);
     const [, setMessage] = useAtom(messageAtom);
     const { TargetApi } = useAxiosServiceClient();
-    const title = t('modals.title.update-target');
-    const subtitle = t('models.subtitle.update-taget');
 
     const onFinish = (values: { amount: number }) => {
         if (props.id && userInfo && userInfo.id) {
@@ -31,13 +29,14 @@ const UpdateTargetModal = (props: AddTargetModalProps) => {
                 if (response.data.success) {
                     setMessage({
                         type: "success",
-                        message: t('modals.succes.update-target')
+                        message: t('modals.succes.updateTarget')
                     })
                     props.onSuccessAction && props.onSuccessAction()
                 }
-            }).catch((err) => {
-                console.log("err: ", err)
-                setMessage({ type: "error", message: "err.data.message" })
+            }).catch(() => {
+                
+                setMessage({ type: "error", 
+                message: t('modals.error.update-target') })
             })
 
         }
@@ -47,7 +46,7 @@ const UpdateTargetModal = (props: AddTargetModalProps) => {
     return (
         <Modal {...props} footer={null}>
             <div className='sign-up-container'>
-                <TitleWithSubtitle title= {title} subtitle={subtitle} />
+                <TitleWithSubtitle title= {t('modals.title.update-target')} subtitle={t('models.subtitle.update-taget')} />
                 <Form layout='vertical' style={{ marginTop: "1.5rem" }} onFinish={onFinish}>
                     <FormLabel label={t('modals.add-target.target')}>
                         <Form.Item name={"amount"}>
