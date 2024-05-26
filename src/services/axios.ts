@@ -4,6 +4,7 @@ import { loadingAtom } from "../store/global-atoms";
 import { AuthApi } from "../api/services/auth-api";
 import { TargetApi } from "../api/services/target-api";
 import { ExpenseApi } from "../api/services/expense-api";
+import { AICommentsApi } from "../api/services/ai-comments-api";
 
 export const useAxiosServiceClient = () => {
   const [, setLoading] = useAtom(loadingAtom);
@@ -38,7 +39,8 @@ export const useAxiosServiceClient = () => {
   const services = {
     AuthApi: new AuthApi(axiosClient),
     TargetApi: new TargetApi(axiosClient),
-    ExpenseApi: new ExpenseApi(axiosClient)
+    ExpenseApi: new ExpenseApi(axiosClient),
+    AICommentsApi: new AICommentsApi(axiosClient)
   }
 
   return {
