@@ -1,7 +1,7 @@
 import { Button, Col, Row, Space } from 'antd';
 import React from 'react';
 import navbarLogo from '../../assets/navbar-logo.png';
-import './second-navbar.css';
+import './secure-navbar.css';
 import { useTranslation } from 'react-i18next';
 import logOutikon from '../../assets/logout.png';
 
