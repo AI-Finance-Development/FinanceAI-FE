@@ -8,6 +8,7 @@ import AdviceList from "../../components/atomics/advice-list/advice-list";
 
 
 
+
 const Index = () => {
   return (
     <>
