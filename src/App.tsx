@@ -65,7 +65,7 @@ function App() {
         }
       />
       <Route
-        path="/lot/detail"
+        path="/lot/:id"
         element={
           <SecureLayout>
             <LotDetailPage />
