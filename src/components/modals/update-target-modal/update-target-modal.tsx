@@ -59,7 +59,7 @@ const UpdateTargetModal = (props: AddTargetModalProps) => {
                         </Form.Item>
                     </FormLabel>
                     <Form.Item>
-                        <PrimaryButton loading={loading} htmlType='submit' buttontext={t('page-parts.auth-part.logIn')}></PrimaryButton>
+                        <PrimaryButton loading={loading} htmlType='submit' buttontext={t('modals.update-target-modal.button')}></PrimaryButton>
                     </Form.Item>
                 </Form>
             </div>
