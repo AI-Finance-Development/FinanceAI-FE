@@ -5,7 +5,7 @@ import './secure-navbar.css';
 import { useTranslation } from 'react-i18next';
 import logOutikon from '../../assets/logout.png';
 
-const Secondnavbar = () => {
+const Securenavbar = () => {
     const { t } = useTranslation();
     return (
         <Row justify="space-around" className="containerSecondNav">
@@ -27,4 +27,4 @@ const Secondnavbar = () => {
     );
 };
 
-export default Secondnavbar;
+export default Securenavbar;
