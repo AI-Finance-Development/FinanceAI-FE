@@ -31,7 +31,7 @@ const ExpenseList = (props: ExpenseListProps) => {
                     {(item: ExpenseListModel) => (
                         <List.Item key={item.category}>
                             <List.Item.Meta
-                                title={<a href="https://ant.design">{item.location}</a>}
+                                title={<span >{item.location}</span>}
                                 description={item.description}
                             />
                             <div>{item.amount} ₺</div>

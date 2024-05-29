@@ -7,6 +7,7 @@ import { ExpenseApi } from "../api/services/expense-api";
 import { AICommentsApi } from "../api/services/ai-comments-api";
 import { LotApi } from "../api/services/lot-api";
 import { useNavigate } from "react-router-dom";
+import { AIAdvicesApi } from "../api/services/ai-advices-api";
 
 export const useAxiosServiceClient = () => {
   const navigate = useNavigate();
@@ -52,7 +53,8 @@ export const useAxiosServiceClient = () => {
     TargetApi: new TargetApi(axiosClient),
     ExpenseApi: new ExpenseApi(axiosClient),
     AICommentsApi: new AICommentsApi(axiosClient),
-    LotApi: new LotApi(axiosClient)
+    LotApi: new LotApi(axiosClient),
+    AIAdvicesApi: new AIAdvicesApi(axiosClient)
   }
 
   return {

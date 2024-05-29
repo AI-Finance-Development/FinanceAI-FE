@@ -11,6 +11,7 @@ import { useAtom } from "jotai";
 import { messageAtom } from "./store/global-atoms";
 import { message } from "antd";
 import LotDetailPage from "./pages/lot-detail-page/lot-detail-page";
+import NotFoundPage from "./pages/404-page/404-page";
 
 function App() {
 
@@ -72,6 +73,7 @@ function App() {
           </SecureLayout>
         }
       />
+       <Route path="*" element={<NotFoundPage />} /> 
     </Routes>
   );
 }
