@@ -1,38 +1,12 @@
-.containerSecondNav {
-    opacity: 1; 
-    padding-top: 40px;
-}
-
-.navItem {
-    font-size: 1.025rem;
-    font-style: italic;
-    font-weight: 500;
-    line-height: 22px;
-    letter-spacing: 0.06em;
-    cursor: pointer;
-    margin-top: -47px; 
-    display: flex;
+.containerSecureNav {
+    padding: 2.5rem 0 1rem 0;
     align-items: center;
+    border-bottom: 1px solid #536EAF;
 }
 
-.logOut {
-    font-size: 1.025rem;
-    font-style: italic;
+.titles span{
     font-weight: 500;
-    line-height: 22px;
-    cursor: pointer;
-    margin-top: 9px; 
-}
-
-.logOutikon {
-    width: 34px;
-    height: 34px; 
-}
-
-.logo {
-    width: 350px;
-    height: 278px;
-    margin-top: -170px;
-    left: 161px;
+    font-size: 1.25rem;
+    font-style: italic;   
     cursor: pointer;
 }
