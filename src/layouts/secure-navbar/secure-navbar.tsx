@@ -18,7 +18,7 @@ const Securenavbar = () => {
                 <Space size="large" className='titles'>
                     <Image src={logo} preview={false} alt='finance-ai' />
                     <span onClick={() => { navigate('/analysis') }}>{t('secure-navbar.title-one')}</span>
-                    <span onClick={() => { navigate('/invest') }}>{t('secure-navbar.title-two')}</span>
+                    <span onClick={() => { navigate('/investment') }}>{t('secure-navbar.title-two')}</span>
                 </Space>
             </Col>
             <Col className='logOut'>

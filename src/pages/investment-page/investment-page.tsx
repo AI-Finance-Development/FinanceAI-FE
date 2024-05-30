@@ -1,24 +1,53 @@
-import React, { useState } from 'react'
-import ExpenseList from '../../page-parts/expense-list/expense-list'
+import React, { useEffect, useState } from 'react'
+import './investment-page.css'
 import GraphicAnalysis from '../../page-parts/graphic-analysis/graphic-analysis'
-import { ExpenseListModel } from "../../api/models/expense-list-model";
-import Securenavbar from '../../layouts/secure-navbar/secure-navbar';
-import { Col, Row } from 'antd';
+import PageLayout from '../../layouts/page-layout/page-layout';
+import { useTranslation } from 'react-i18next';
+import { messageAtom, userInfoAtom } from '../../store/global-atoms';
+import { useAtom } from 'jotai';
+import { useAxiosServiceClient } from '../../services/axios';
+import { ListUserInvestmentsResponseModel } from '../../api/models/list-user-investments-response-model';
+import InvestmentList from '../../page-parts/investment-list/investment-list';
+
 const InvestmentPage = () => {
-    const [expenses, setExpenses] = useState<ExpenseListModel[]>([]);
+
+  const { t } = useTranslation();
+  const [userInfo] = useAtom(userInfoAtom);
+  const [, setMessage] = useAtom(messageAtom);
+  const [investments, setInvestments] = useState<ListUserInvestmentsResponseModel[]>([]);
+  const { InvestmentsApi } = useAxiosServiceClient();
+
+  useEffect(() => {
+    if (userInfo && userInfo.id) {
+      fetchInvestments(userInfo.id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userInfo?.id])
+
+  const fetchInvestments = (id: number) => {
+    InvestmentsApi.getUserInvestments(id).then((response) => {
+      setInvestments(response.data.data)
+    }).catch(() => {
+      setMessage({
+        type: "error"
+        , message: "Yatırımlar Listelenemedi"
+      })
+    })
+  }
+
+
   return (
-    <div>
-        
-        <Securenavbar/>
-        <Row>
-        <Col span={4}></Col>
-        <Col span={16} >
-       <ExpenseList expenses={[...expenses, ...expenses, ...expenses]} />
-            <GraphicAnalysis expenses={expenses} />
-            </Col>
-            <Col span={4}></Col>
-            </Row>
-    </div>
+    <PageLayout>
+      <div className='body'>
+        <GraphicAnalysis
+          expenses={investments}
+          title={t('page.parts.investment-graphic.title')}
+          subtitle={t('page.parts.investment-graphic.subtitle')}
+        />
+        <InvestmentList investments={investments} />
+      </div>
+    </PageLayout>
+
   )
 }
 

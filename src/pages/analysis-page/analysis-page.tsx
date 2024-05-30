@@ -78,7 +78,7 @@ const Analysis = () => {
     <PageLayout>
       <div className="body">
         <ExpenseList expenses={[...expenses, ...expenses, ...expenses]} />
-        <GraphicAnalysis expenses={expenses} />
+        <GraphicAnalysis expenses={expenses} title={t('page.parts.analysis-graphic.title')} subtitle={t('page.parts.analysis-graphic.subtitle')}/>
         <div>
           <Tabs
             defaultActiveKey="1"
