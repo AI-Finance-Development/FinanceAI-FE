@@ -8,6 +8,7 @@ import { AICommentsApi } from "../api/services/ai-comments-api";
 import { LotApi } from "../api/services/lot-api";
 import { useNavigate } from "react-router-dom";
 import { AIAdvicesApi } from "../api/services/ai-advices-api";
+import { InvestmentsApi } from "../api/services/investments-api";
 
 export const useAxiosServiceClient = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ export const useAxiosServiceClient = () => {
     (error) => {
       console.log("error on response: ", error);
       console.log("response: ", error.response.status);
-      if(error.response.status===403){
+      if(error.response.status === 403){
         setMessage({
           type:"warning",
           message:"Bu işlem için yetkiniz bulunmamaktadır. Lütfen Giriş Yapın"
@@ -54,7 +55,8 @@ export const useAxiosServiceClient = () => {
     ExpenseApi: new ExpenseApi(axiosClient),
     AICommentsApi: new AICommentsApi(axiosClient),
     LotApi: new LotApi(axiosClient),
-    AIAdvicesApi: new AIAdvicesApi(axiosClient)
+    AIAdvicesApi: new AIAdvicesApi(axiosClient),
+    InvestmentsApi: new InvestmentsApi(axiosClient)
   }
 
   return {

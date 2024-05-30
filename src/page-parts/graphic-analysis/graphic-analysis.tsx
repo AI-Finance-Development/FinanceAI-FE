@@ -4,9 +4,12 @@ import { Col, Row } from 'antd'
 import FaiGraphic from '../../components/atomics/fai-graphic/fai-graphic'
 import { ExpenseListModel } from '../../api/models/expense-list-model'
 import TitleWithSubtitle from '../../components/atomics/title-with-subtitle/title-with-subtitle';
+import { ListUserInvestmentsResponseModel } from '../../api/models/list-user-investments-response-model'
 
 export interface GraphicAnalysisProps {
-    expenses: ExpenseListModel[];
+    expenses: ExpenseListModel[] | ListUserInvestmentsResponseModel[];
+    title:string;
+    subtitle:string;
 }
 
 const GraphicAnalysis = (props: GraphicAnalysisProps) => {
@@ -15,9 +18,8 @@ const GraphicAnalysis = (props: GraphicAnalysisProps) => {
             <TitleWithSubtitle title='Harcama Analizi' subtitle='Yaptığın harcamaları grafiksel analiz et'/>
             <Row justify={'space-between'}>
                 <Col span={20}>
-                    <FaiGraphic expenses={props.expenses} />
-                </Col>
-                
+                    <FaiGraphic comingData={props.expenses} />
+                </Col>           
             </Row>
         </div>
     )

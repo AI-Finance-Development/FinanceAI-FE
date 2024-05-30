@@ -12,6 +12,7 @@ import { messageAtom } from "./store/global-atoms";
 import { message } from "antd";
 import LotDetailPage from "./pages/lot-detail-page/lot-detail-page";
 import NotFoundPage from "./pages/404-page/404-page";
+import InvestmentPage from "./pages/investment-page/investment-page";
 
 function App() {
 
@@ -70,6 +71,14 @@ function App() {
         element={
           <SecureLayout>
             <LotDetailPage />
+          </SecureLayout>
+        }
+      />
+       <Route
+        path="/investment"
+        element={
+          <SecureLayout>
+            <InvestmentPage />
           </SecureLayout>
         }
       />
