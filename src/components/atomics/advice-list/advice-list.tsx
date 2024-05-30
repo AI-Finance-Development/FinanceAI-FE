@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListProps, } from 'antd';
+import {  List, ListProps, } from 'antd';
 import './advice-list.css';
 import { ListAIAdviceResponseModel } from '../../../api/models/list-ai-advices-response-model';
 
@@ -11,11 +11,11 @@ const AdviceList = (props: AdviceListProps) => {
 
   return (
     <List className='liste'
-      header={<div>Header</div>}
+      header={undefined}
       bordered
       dataSource={props.advices}
       renderItem={(item) => (
-        <List.Item>{item.advice}</List.Item>
+          <List.Item className='list-item-style'>{item.advice}</List.Item>
       )}
     />
   );

@@ -46,6 +46,7 @@
   "page.parts.financial-report" : "Kişiselleştirilmiş finansal raporlar",
   "page.parts.investment-advice" : "Yatırım tavsiyeleri",
   "page.startButton" : "Hemen başlayın",
+  "messages.error.list-ai-comment":"Hisse hakkında yapılan yapay zeka yorumu çekilemedi.",
   "modals.succes.delete-target":"Hedef Başarıyla Silindi",
   "modals.error.delete-target":"Hedef silinemedi.",
   "modals.button.delete": "Sil",

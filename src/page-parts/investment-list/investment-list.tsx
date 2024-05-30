@@ -1,5 +1,5 @@
-import { Flex, Image, List, Space } from 'antd'
 import React from 'react'
+import { Flex, List, Space } from 'antd'
 import './investment-list.css'
 import TitleWithSubtitle from '../../components/atomics/title-with-subtitle/title-with-subtitle'
 import FaiList from '../../components/atomics/fai-list/fai-list'
@@ -8,12 +8,8 @@ import { useTranslation } from 'react-i18next';
 import { useAtom } from 'jotai';
 import { loadingAtom } from '../../store/global-atoms';
 import { ListUserInvestmentsResponseModel } from '../../api/models/list-user-investments-response-model';
-import thy from '../../assets/thy-logo.png';
-import aselsan from '../../assets/aselsan-logo.png';
-import tuprs from '../../assets/tupras-logo.png';
-import doas from '../../assets/doas-logo.png';
-import pgss from '../../assets/pgss.png';
 import { useNavigate } from 'react-router-dom'
+import ImageHandler from '../../utils/image-handler'
 
 interface InvestmentListProps {
     investments: ListUserInvestmentsResponseModel[];
@@ -24,7 +20,6 @@ const InvestmentList = ({ investments }: InvestmentListProps) => {
     const navigate = useNavigate();
     const { t } = useTranslation();
     const [loading] = useAtom(loadingAtom)
-
 
     return (
         <Space direction='vertical' style={{ width: "80%" }} size={'large'}>
@@ -41,11 +36,10 @@ const InvestmentList = ({ investments }: InvestmentListProps) => {
                             <List.Item.Meta
                                 title={
                                     <Flex gap={"1rem"} onClick={()=>{navigate(`/lot/${item.lotId}`)}}>
-                                        <Image src={item.lotCode === 'THYAO' ? thy : item.lotCode === 'DOAS' ? doas : item.lotCode === 'ASELSN' ? aselsan : item.lotCode === 'PGSUS' ? pgss : tuprs}
-                                            preview={false} height={"50px"} width={"50px"} />
+                                        <ImageHandler code={item.lotCode} preview={false}/>
                                         <Space direction='vertical' size={"small"}>
-                                            <span className='listItemTitle'>{item.lotCompany}</span>
-                                            <span className='listItemSubtitle'>{item.lotCode}</span>
+                                            <span className='listItemTitle'>{item.lotCompany} ({item.lotCode})</span>
+                                            <span className='listItemSubtitle'>{item.value} ₺</span>
                                         </Space>
                                     </Flex>
                                 }

@@ -1,5 +1,5 @@
-import { Col, Row, Tabs } from 'antd'
 import React, { useEffect, useState } from 'react'
+import { Tabs } from 'antd'
 import LotCard from '../../page-parts/lot-card/lot-card'
 import TitleWithSubtitle from '../../components/atomics/title-with-subtitle/title-with-subtitle'
 import { useAxiosServiceClient } from '../../services/axios'
@@ -8,12 +8,15 @@ import { messageAtom } from '../../store/global-atoms'
 import { ListLotDetailResponseModel } from '../../api/models/list-lot-detail-reponse-model'
 import { useParams } from 'react-router-dom'
 import { ListAICommentResponseModel } from '../../api/models/list-ai-comment-response-model'
+import PageLayout from '../../layouts/page-layout/page-layout'
+import { useTranslation } from 'react-i18next'
 
 export interface LotDetailPageProps { }
 
 const LotDetailPage = () => {
 
     const { id } = useParams();
+    const {t} = useTranslation();
     const [lot, setLot] = useState<ListLotDetailResponseModel | undefined>(undefined)
     const [aiComment, setAIComment] = useState<ListAICommentResponseModel | undefined>(undefined)
     const [, setMessage] = useAtom(messageAtom);
@@ -37,8 +40,10 @@ const LotDetailPage = () => {
         LotApi.getLotDetail(id).then((response) => {
             setLot(response.data.data)
         }).catch((err) => {
-            setMessage({ type: "error", message: "Hisse Detayları Listelenemedi" })
-        })
+            setMessage({
+                type: "error",
+                message: t('messages.error.list-ai-comment')
+            })        })
     }
 
     const fetchAIComments = (id: number) => {
@@ -47,50 +52,41 @@ const LotDetailPage = () => {
         }).catch(() => {
             setMessage({
                 type: "error",
-                message: "Hisse hakkında yapılan yapay zeka yorumu çekilemedi."
+                message: t('messages.error.list-ai-comment')
             })
         })
     }
 
     return (
-        <Row>
-            <Col span={4}></Col>
-            <Col span={16}>
-                {
-                    lot && <LotCard lot={lot} />
-                }
-                <div>
-                    <Tabs
-                        defaultActiveKey="1"
-                        items={
-                            [
-                                {
-                                    key: "1",
-                                    label: "",
-                                    icon: <TitleWithSubtitle title={"Hisse Hakkında AI"}
-                                        subtitle={""} />,
-                                    children: <p>{aiComment?.comment}</p>
-                                },
-                                {
-                                    key: "2",
-                                    label: "",
-                                    icon: <TitleWithSubtitle title={"Hisse Hakkında Haberler"} subtitle={""} />,
-                                    children: <p>de</p>
-                                },
-                                {
-                                    key: "3",
-                                    label: "",
-                                    icon: <TitleWithSubtitle title={"Hisse Hakkında AI"}
-                                        subtitle={""} />,
-                                    children: <p>asd</p>
-                                },
-                            ]
-                        }
-                    />
-                </div>
-            </Col>
-            <Col span={4}></Col>
-        </Row>
+        <PageLayout>
+            <>
+            {
+                lot && <LotCard lot={lot} />
+            }
+            <div>
+                <Tabs
+                    defaultActiveKey="1"
+                    items={
+                        [
+                            {
+                                key: "1",
+                                label: "",
+                                icon: <TitleWithSubtitle title={"Hisse Hakkında AI"}
+                                    subtitle={""} />,
+                                children: <p>{aiComment?.comment}</p>
+                            },
+                            {
+                                key: "2",
+                                label: "",
+                                icon: <TitleWithSubtitle title={"Hisse Hakkında Haberler"} subtitle={""} />,
+                                children: <p>de</p>
+                            },
+                        ]
+                    }
+                />
+            </div>
+            </>
+        </PageLayout>
     )
 }
 

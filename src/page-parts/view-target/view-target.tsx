@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './view-target.css'
 import { ListUserTargetModel } from '../../api/models/list-user-target-model'
 import dayjs from 'dayjs'
 import { Flex } from 'antd'
@@ -25,7 +26,7 @@ const ViewTarget = (props: ViewTargetProps) => {
     const areyousure = t('page.parts.sure-target-delete');
     return (
         <div style={{ width: "40%" }}>
-            <span>{dayjs(props.data.loadDate).format('DD.MM')} {t('page.parts.expense')} %{props.data.amount} {t('page.parts.target')}</span>
+            <span className='target-span-style'>{dayjs(props.data.loadDate).format('DD.MM')} {t('page.parts.expense')} %{props.data.amount} {t('page.parts.target')}</span>
             <Flex style={{ padding: "2rem 0" }} gap={"0.5rem"}>
                 <PrimaryButton buttontext={update} onClick={() => { setOpenUpdateModal(true) }} />
                 <Dangerbutton buttontext={delet} onClick={() => { setOpenDeleteModal(true) }}/>

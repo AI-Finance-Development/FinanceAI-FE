@@ -1,30 +1,29 @@
-import { Flex, Image, Space } from 'antd'
+import { Flex, Space } from 'antd'
 import './lot-card.css'
 import React from 'react'
-import thylogo from '../../assets/thy-logo.png';
 import { ListLotDetailResponseModel } from '../../api/models/list-lot-detail-reponse-model';
+import ImageHandler from '../../utils/image-handler';
 
 export interface LotCardProps {
-    lot:ListLotDetailResponseModel
+    lot: ListLotDetailResponseModel
 }
 
-const LotCard = (props: LotCardProps) => {
+const LotCard = ({ lot }: LotCardProps) => {
     return (
         <div style={{ display: "flex", alignItems: "center", gap: "1rem", padding: "1rem" }}>
             <div>
-                <Image src={thylogo} />
+                <ImageHandler code={lot.code} width={"100px"}/>
             </div>
             <Space direction='vertical'>
-                <h1 className='lot-card-title'>{props.lot.company}</h1>
+                <h1 className='lot-card-title'>{lot.company} ({lot.code})</h1>
                 <Flex className='lot-card-subtitle' gap={"2rem"}>
                     <span>İstanbul</span>
                     <span>Döviz Try</span>
                 </Flex>
                 <div className='lot-card-title2' style={{ display: "flex", gap: "2rem" }}>
-                    <span>{props.lot.value}</span>
-
+                    <span>{lot.value} ₺</span>
                 </div>
-                <Flex className='lot-card-title3' gap={"2rem"}>
+                <Flex className='lot-card-subtitle' gap={"2rem"}>
                     <span>Kapanış</span>
                     <span>10/05</span>
                 </Flex>

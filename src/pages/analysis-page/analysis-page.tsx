@@ -74,36 +74,36 @@ const Analysis = () => {
     })
   }
 
+  const tabs = [
+    {
+      key: "1",
+      label: "",
+      icon: target === undefined
+        ? <TitleWithSubtitle title={t('pages.analysis-page.add-target.title')}
+          subtitle={t('pages.analysis-page.add-target.title')} />
+        : <TitleWithSubtitle title={t('pages.analysis-page.view-target.title')}
+          subtitle={t('pages.analysis-page.view-target.subtitle')} />,
+      children: target === null || target === undefined ?
+        <AddTarget onSuccessAction={() => fetchTarget(userInfo?.id || 1)} />
+        : <ViewTarget data={target!} onSuccessAction={() => { fetchTarget(userInfo?.id || 0) }} />
+    },
+    {
+      key: "2",
+      label: "",
+      icon: <TitleWithSubtitle title={t('pages.analysis-page.ai-comment.title')} subtitle={t('pages.analysis-page.ai-comment.subtitle')} />,
+      children: advices && <AdviceList loading={loading} advices={advices} />
+    }
+  ]
+
   return (
     <PageLayout>
       <div className="body">
         <ExpenseList expenses={[...expenses, ...expenses, ...expenses]} />
-        <GraphicAnalysis expenses={expenses} title={t('page.parts.analysis-graphic.title')} subtitle={t('page.parts.analysis-graphic.subtitle')}/>
+        <GraphicAnalysis expenses={expenses} title={t('page.parts.analysis-graphic.title')} subtitle={t('page.parts.analysis-graphic.subtitle')} />
         <div>
           <Tabs
             defaultActiveKey="1"
-            items={
-              [
-                {
-                  key: "1",
-                  label: "",
-                  icon: target === undefined
-                    ? <TitleWithSubtitle title={t('pages.analysis-page.add-target.title')}
-                      subtitle={t('pages.analysis-page.add-target.title')} />
-                    : <TitleWithSubtitle title={t('pages.analysis-page.view-target.title')}
-                      subtitle={t('pages.analysis-page.view-target.subtitle')} />,
-                  children: target === null || target === undefined ?
-                    <AddTarget onSuccessAction={() => fetchTarget(userInfo?.id || 1)} />
-                    : <ViewTarget data={target!} onSuccessAction={() => { fetchTarget(userInfo?.id || 0) }} />
-                },
-                {
-                  key: "2",
-                  label: "",
-                  icon: <TitleWithSubtitle title={t('pages.analysis-page.ai-comment.title')} subtitle={t('pages.analysis-page.ai-comment.subtitle')} />,
-                  children: advices && <AdviceList loading={loading} advices={advices} />
-                }
-              ]
-            }
+            items={tabs}
           />
         </div>
       </div>

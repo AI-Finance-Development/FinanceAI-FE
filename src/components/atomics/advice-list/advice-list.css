@@ -1,3 +1,8 @@
 .liste {
-    width: 40%;
+    width: 80%;
+}
+
+.list-item-style{
+    font-size: 1.25rem;
+    font-weight: 600;
 }
