@@ -10,7 +10,8 @@ import Analysis from "./pages/analysis-page/analysis-page";
 import { useAtom } from "jotai";
 import { messageAtom } from "./store/global-atoms";
 import { message } from "antd";
-import Errorpage from "./pages/404-page/404-page";
+import LotDetailPage from "./pages/lot-detail-page/lot-detail-page";
+import NotFoundPage from "./pages/404-page/404-page";
 
 function App() {
 
@@ -64,7 +65,15 @@ function App() {
           </SecureLayout>
         }
       />
-       <Route path="*" element={<Errorpage />} /> 
+      <Route
+        path="/lot/:id"
+        element={
+          <SecureLayout>
+            <LotDetailPage />
+          </SecureLayout>
+        }
+      />
+       <Route path="*" element={<NotFoundPage />} /> 
     </Routes>
   );
 }
