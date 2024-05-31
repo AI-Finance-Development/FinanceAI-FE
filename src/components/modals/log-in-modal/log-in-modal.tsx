@@ -1,6 +1,6 @@
 
 import './log-in-modal.css'
-import { Form, Input, Modal, ModalProps, Space } from 'antd'
+import { Form, Input, Modal, ModalProps} from 'antd'
 import FaiInput from '../../atomics/fai-input/fai-input'
 import PrimaryButton from '../../atomics/primary-button/primary-button'
 import { useAxiosServiceClient } from '../../../services/axios'
@@ -9,6 +9,7 @@ import FormLabel from '../../atomics/form-label/form-label'
 import { useAtom } from 'jotai'
 import { loadingAtom, messageAtom, userInfoAtom } from '../../../store/global-atoms'
 import { useNavigate } from 'react-router-dom'
+import TitleWithSubtitle from '../../atomics/title-with-subtitle/title-with-subtitle'
 
 
 interface LogInModalProps extends ModalProps {
@@ -50,10 +51,7 @@ const [loading] = useAtom(loadingAtom)
     return (
         <Modal {...props} footer={null}>
             <div className='sign-up-container'>
-                <Space direction='vertical'>
-                    <span className='title'>Sign In</span>
-                    <span className='subTitle'>Please enter your info</span>
-                </Space>
+                <TitleWithSubtitle title='Giriş Yap' subtitle='Bilgilerin giriş yap'/>
                 <Form layout='vertical' style={{ marginTop: "1.5rem" }} onFinish={onFinish}>
                     <FormLabel label='Kullanıcı Adı'>
                         <Form.Item name={"username"}>

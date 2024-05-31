@@ -15,7 +15,7 @@ export interface GraphicAnalysisProps {
 const GraphicAnalysis = (props: GraphicAnalysisProps) => {
     return (
         <div className='graphic-analysis-container'>
-            <TitleWithSubtitle title='Harcama Analizi' subtitle='Yaptığın harcamaları grafiksel analiz et'/>
+            <TitleWithSubtitle title={props.title} subtitle={props.subtitle}/>
             <Row justify={'space-between'}>
                 <Col span={20}>
                     <FaiGraphic comingData={props.expenses} />
