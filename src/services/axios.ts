@@ -1,3 +1,4 @@
+import { SummaryNewsApi } from './../api/services/summary-news-api';
 import axios from "axios";
 import { useAtom } from "jotai";
 import { loadingAtom, messageAtom } from "../store/global-atoms";
@@ -9,6 +10,7 @@ import { LotApi } from "../api/services/lot-api";
 import { useNavigate } from "react-router-dom";
 import { AIAdvicesApi } from "../api/services/ai-advices-api";
 import { InvestmentsApi } from "../api/services/investments-api";
+import { NewsApi } from '../api/services/news-api';
 
 export const useAxiosServiceClient = () => {
   const navigate = useNavigate();
@@ -56,7 +58,9 @@ export const useAxiosServiceClient = () => {
     AICommentsApi: new AICommentsApi(axiosClient),
     LotApi: new LotApi(axiosClient),
     AIAdvicesApi: new AIAdvicesApi(axiosClient),
-    InvestmentsApi: new InvestmentsApi(axiosClient)
+    InvestmentsApi: new InvestmentsApi(axiosClient),
+    NewsApi: new NewsApi(axiosClient),
+    SummaryNewsApi: new SummaryNewsApi(axiosClient)
   }
 
   return {
