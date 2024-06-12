@@ -122,12 +122,12 @@ const LotDetailPage = () => {
                                 {
                                     key: "1",
                                     label: "",
-                                    icon: <TitleWithSubtitle title={"Hisse Hakkında AI"}
+                                    icon: <TitleWithSubtitle title={`What is saying AI about ${lot?.code}`}
                                         subtitle={""} />,
                                     children: <div>
                                         <p style={{fontSize:"1.25rem",fontWeight:"500"}}>{aiComment?.comment}</p>
                                         <div>
-                                            <h2 style={{marginTop:"3rem"}}>Diğer Yatırımlarına Göz At</h2>
+                                            <h2 style={{marginTop:"3rem"}}>Check out other stocks</h2>
                                             <Row gutter={16}>
                                                 {lots.filter(option => option.code !== lot?.code).map((x => (
                                                     <Col span={8}>
@@ -142,7 +142,7 @@ const LotDetailPage = () => {
                                 {
                                     key: "2",
                                     label: "",
-                                    icon: <TitleWithSubtitle title={"Hisse Hakkında Haberler"} subtitle={""} />,
+                                    icon: <TitleWithSubtitle title={`News and analysis about ${lot?.code}`} subtitle={""} />,
                                     children: <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
                                         {
                                             summaryNews && summaryNews.map(summary => (

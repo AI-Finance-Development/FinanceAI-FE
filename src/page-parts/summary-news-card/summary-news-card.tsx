@@ -9,7 +9,7 @@ interface SummaryNewsCardProps{
 const SummaryNewsCard = ({data}:SummaryNewsCardProps) => {
   return (
     <div className='summary-container'>
-        <span>{data.summary}</span>
+        <span style={{fontSize:"1.25rem",fontWeight:"500"}}>{data.summary}</span>
     </div>
   )
 }

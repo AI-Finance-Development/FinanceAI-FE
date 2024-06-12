@@ -22,10 +22,10 @@ const ImageHandler = (props:ImageHandlerProps) => {
         props.code === 'DOAS' ? doas:
         props.code === 'TUPRS' ? tuprs:
         props.code === 'GOOGL' ? google:
-        props.code === 'TESLA' ? tesla:
+        props.code === 'TSLA' ? tesla:
         props.code === 'META' ? meta:
-        props.code === 'NETFLİX' ? netflix:
-        props.code === 'MİCROSOFT' ? microsoft:
+        props.code === 'NFLX' ? netflix:
+        props.code === 'MSFT' ? microsoft:
         aselsan 
     }
     height={"50 px"}
